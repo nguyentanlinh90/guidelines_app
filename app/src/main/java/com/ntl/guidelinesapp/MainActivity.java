@@ -1,3 +1,9 @@
+/*
+
+    Created by Linh Nguyen 18/5/2022
+
+*/
+
 package com.ntl.guidelinesapp;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -68,6 +68,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(CONTENT_PUSH_NOTIFICATION))
                 .setColor(getResources().getColor(R.color.purple_500))
                 .setSound(uri)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
                 .build();
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -85,7 +86,8 @@ public class NotificationActivity extends AppCompatActivity {
         //lay am thanh tu benh ngoai, file .mp3 dat vao drawable/raw
         Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_baseline_notifications_24);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
+
         Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID_2)
                 .setContentTitle("Notification title 2")
                 .setContentText("Notification content 2")
@@ -95,6 +97,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null))
                 .setColor(getResources().getColor(R.color.purple_500))
                 .setSound(sound)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
                 .build();
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
