@@ -16,7 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/screen_notification" />
-
+        <Button
+            android:id="@+id/bt_retrofit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/screen_retrofit" />
     </LinearLayout>
 
 </ScrollView>
