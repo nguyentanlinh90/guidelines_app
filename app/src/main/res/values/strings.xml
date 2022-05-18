@@ -11,4 +11,6 @@
 
     <string name="screen_download_file">Download File</string>
 
+    <string name="screen_broadcast_receiver">Broadcast Receiver</string>
+
 </resources>

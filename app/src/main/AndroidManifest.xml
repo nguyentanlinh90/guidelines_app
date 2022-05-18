@@ -50,13 +50,6 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".modules.broadcast_receiver.MyBroadcastReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

@@ -31,6 +31,13 @@
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:text="@string/screen_download_file" />
+
+        <Button
+            android:id="@+id/bt_broadcast_receiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="@string/screen_broadcast_receiver" />
     </LinearLayout>
 
 </ScrollView>

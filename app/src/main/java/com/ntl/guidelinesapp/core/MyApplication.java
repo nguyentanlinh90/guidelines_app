@@ -22,7 +22,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         createNotificationChannel();
-        registerConnectivity();
+//        registerConnectivity();
     }
 
     private void createNotificationChannel() {
@@ -57,5 +57,6 @@ public class MyApplication extends Application {
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(new MyBroadcastReceiver(), intentFilter);
     }
+
 }
 
