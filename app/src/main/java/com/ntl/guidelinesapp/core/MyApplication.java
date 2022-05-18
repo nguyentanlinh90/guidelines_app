@@ -4,12 +4,15 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.IntentFilter;
 import android.media.AudioAttributes;
 import android.media.RingtoneManager;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.modules.broadcast_receiver.MyBroadcastReceiver;
 
 public class MyApplication extends Application {
     public static final String CHANNEL_ID = "CHANNEL_ID";
@@ -19,6 +22,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         createNotificationChannel();
+        registerConnectivity();
     }
 
     private void createNotificationChannel() {
@@ -45,6 +49,13 @@ public class MyApplication extends Application {
                 manager.createNotificationChannel(channel2);
             }
         }
+    }
+
+    //use for android 7 (api 24) or higher
+    private void registerConnectivity() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(new MyBroadcastReceiver(), intentFilter);
     }
 }
 
