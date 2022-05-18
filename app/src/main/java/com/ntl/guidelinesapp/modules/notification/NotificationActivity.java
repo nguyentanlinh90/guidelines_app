@@ -6,7 +6,10 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
@@ -32,43 +35,37 @@ public class NotificationActivity extends AppCompatActivity {
 
     private static final int NOTIFICATION_ID = 113;
 
-    private Button btShowNotification, btShowNotification2, btShowNotificationCustom;
+    private Button btShowNotification, btShowNotification2, btShowNotificationCustom, btGoToListProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
+
+        getSupportActionBar().setTitle("NotificationActivity");
+
         btShowNotification = findViewById(R.id.bt_show_notification);
         btShowNotification2 = findViewById(R.id.bt_show_notification_2);
         btShowNotificationCustom = findViewById(R.id.bt_show_notification_custom);
+        btGoToListProduct = findViewById(R.id.bt_go_to_list_product);
 
-        btShowNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendNotification();
-            }
-        });
+        btShowNotification.setOnClickListener(v -> sendNotification());
 
-        btShowNotification2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendNotification2();
-            }
-        });
-        btShowNotificationCustom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendNotificationCustom();
-            }
+        btShowNotification2.setOnClickListener(v -> sendNotification2());
+        btShowNotificationCustom.setOnClickListener(v -> sendNotificationCustom());
+
+        btGoToListProduct.setOnClickListener(v -> {
+            Intent intent = new Intent(NotificationActivity.this, ProductActivity.class);
+            startActivity(intent);
         });
     }
 
     private void sendNotification() {
-        //lay am thanh default notification trong device
+        // get ringtone default notification of device
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        //tat ca cac hinh deu khac dinh danh xml thi moi hien thi o notification large icon
-        //ic_baseline_notifications_24 => dinh dang xml => se ko hien thi
+        //all image should be different .xml
+        //ic_baseline_notifications_24 is .xml file => not display
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_baseline_notifications_24);
         Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID)
                 .setContentTitle("Notification title")
@@ -83,7 +80,7 @@ public class NotificationActivity extends AppCompatActivity {
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (manager != null) {
-            //neu cung id thi cai sau se de len cai truoc
+            //if the same id: notification after will override notification before
             manager.notify(NOTIFICATION_ID, notification);
         }
     }
@@ -93,7 +90,6 @@ public class NotificationActivity extends AppCompatActivity {
     }
 
     private void sendNotification2() {
-        //lay am thanh tu benh ngoai, file .mp3 dat vao drawable/raw
         Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
@@ -103,7 +99,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setContentText("Notification content 2")
                 .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
                 .setLargeIcon(bitmap)
-                //hien thi hinh to o content notification
+                //display big image in content notification
                 .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null))
                 .setColor(getResources().getColor(R.color.purple_500))
                 .setSound(sound)
@@ -115,10 +111,10 @@ public class NotificationActivity extends AppCompatActivity {
     }
 
     private void sendNotificationCustom() {
-        //lay am thanh tu benh ngoai, file .mp3 dat vao drawable/raw
+
         Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
 
-        //nen resize bitmap de tranh loi exception neu size anh qua lon
+        //should resize bitmap to avoid exception if size image to big
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
 
         //for default
@@ -141,9 +137,19 @@ public class NotificationActivity extends AppCompatActivity {
                 .setSound(sound)
                 .setCustomContentView(remoteViews)
                 .setCustomBigContentView(remoteViewsExpand)
+                .setContentIntent(gotoProduct())
+                .setAutoCancel(true) // delete notification on notification bar after click
                 .build();
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
         notificationManagerCompat.notify(getNotificationId(), notification);
+    }
+
+    private PendingIntent gotoProduct() {
+        Intent intent = new Intent(this, DetailActivity.class);
+        TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(this);
+        taskStackBuilder.addNextIntentWithParentStack(intent);
+        PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        return pendingIntent;
     }
 }

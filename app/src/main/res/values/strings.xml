@@ -8,7 +8,7 @@
     <string name="channel_name_2">Channel 2</string>
     <string name="channel_des_2">This is Channel 2</string>
 
-<!--    retrofit-->
+    <!--    retrofit-->
     <string name="screen_retrofit">Retrofit</string>
 
 </resources>
