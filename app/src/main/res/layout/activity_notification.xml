@@ -20,4 +20,11 @@
         android:layout_marginTop="16dp"
         android:text="SEND Notification 2" />
 
+    <Button
+        android:id="@+id/bt_show_notification_custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="SEND Notification Custome" />
+
 </LinearLayout>

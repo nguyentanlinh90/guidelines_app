@@ -14,10 +14,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RemoteViews;
 
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.MyApplication;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NotificationActivity extends AppCompatActivity {
@@ -30,7 +32,7 @@ public class NotificationActivity extends AppCompatActivity {
 
     private static final int NOTIFICATION_ID = 113;
 
-    private Button btShowNotification, btShowNotification2;
+    private Button btShowNotification, btShowNotification2, btShowNotificationCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class NotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
         btShowNotification = findViewById(R.id.bt_show_notification);
         btShowNotification2 = findViewById(R.id.bt_show_notification_2);
+        btShowNotificationCustom = findViewById(R.id.bt_show_notification_custom);
+
         btShowNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +53,12 @@ public class NotificationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendNotification2();
+            }
+        });
+        btShowNotificationCustom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendNotificationCustom();
             }
         });
     }
@@ -98,6 +108,39 @@ public class NotificationActivity extends AppCompatActivity {
                 .setColor(getResources().getColor(R.color.purple_500))
                 .setSound(sound)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
+                .build();
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        notificationManagerCompat.notify(getNotificationId(), notification);
+    }
+
+    private void sendNotificationCustom() {
+        //lay am thanh tu benh ngoai, file .mp3 dat vao drawable/raw
+        Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
+
+        //nen resize bitmap de tranh loi exception neu size anh qua lon
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
+
+        //for default
+        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.layout_custom_notification);
+        remoteViews.setTextViewText(R.id.tv_title, "Title Notification");
+        remoteViews.setTextViewText(R.id.tv_info, "Info Notification");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+        String date = simpleDateFormat.format(new Date());
+        remoteViews.setTextViewText(R.id.tv_time, date);
+        remoteViews.setImageViewBitmap(R.id.iv_notification, bitmap);
+
+        //for expand
+        RemoteViews remoteViewsExpand = new RemoteViews(getPackageName(), R.layout.layout_custom_notification_expand);
+        remoteViewsExpand.setTextViewText(R.id.tv_title, "Title Notification");
+        remoteViewsExpand.setTextViewText(R.id.tv_info, "Info Notification");
+        remoteViewsExpand.setImageViewBitmap(R.id.img_notification, bitmap);
+
+        Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID_2)
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSound(sound)
+                .setCustomContentView(remoteViews)
+                .setCustomBigContentView(remoteViewsExpand)
                 .build();
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
