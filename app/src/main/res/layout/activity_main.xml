@@ -24,6 +24,13 @@
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:text="@string/screen_notification" />
+
+        <Button
+            android:id="@+id/bt_download_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="@string/screen_download_file" />
     </LinearLayout>
 
 </ScrollView>

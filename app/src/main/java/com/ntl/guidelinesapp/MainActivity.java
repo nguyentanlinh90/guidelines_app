@@ -13,21 +13,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btNotification, btRetrofit;
+    private Button btRetrofit, btNotification, btDownloadFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btNotification = findViewById(R.id.bt_notification);
+
         btRetrofit = findViewById(R.id.bt_retrofit);
+        btNotification = findViewById(R.id.bt_notification);
+        btDownloadFile = findViewById(R.id.bt_download_file);
 
         btNotification.setOnClickListener(this);
         btRetrofit.setOnClickListener(this);
+        btDownloadFile.setOnClickListener(this);
     }
 
     @Override
@@ -39,6 +43,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_retrofit:
                 gotoScreen(RetrofitActivity.class);
                 break;
+                case R.id.bt_download_file:
+                gotoScreen(DownloadFileActivity.class);
+                break;
+
         }
     }
 
