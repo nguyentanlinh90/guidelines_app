@@ -15,6 +15,7 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.widget.Button;
 import android.widget.RemoteViews;
 
@@ -34,7 +35,7 @@ public class NotificationActivity extends AppCompatActivity {
 
     private static final int NOTIFICATION_ID = 113;
 
-    private Button btShowNotification, btShowNotification2, btShowNotificationCustom, btGoToListProduct;
+    private Button btShowNotification, btShowNotification2, btShowNotificationCustom, btGoToListProduct, btShowNotificationMedia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class NotificationActivity extends AppCompatActivity {
         btShowNotification2 = findViewById(R.id.bt_show_notification_2);
         btShowNotificationCustom = findViewById(R.id.bt_show_notification_custom);
         btGoToListProduct = findViewById(R.id.bt_go_to_list_product);
+        btShowNotificationMedia = findViewById(R.id.bt_send_notification_media);
 
         btShowNotification.setOnClickListener(v -> sendNotification());
 
@@ -56,6 +58,10 @@ public class NotificationActivity extends AppCompatActivity {
         btGoToListProduct.setOnClickListener(v -> {
             Intent intent = new Intent(NotificationActivity.this, ProductActivity.class);
             startActivity(intent);
+        });
+
+        btShowNotificationMedia.setOnClickListener(v -> {
+            sendNotificationMedia();
         });
     }
 
@@ -171,5 +177,29 @@ public class NotificationActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         return pendingIntent;
+    }
+
+    private void sendNotificationMedia() {
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
+        MediaSessionCompat mediaSessionCompat = new MediaSessionCompat(this, "tag");
+
+        Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID_2)
+                .setSmallIcon(R.drawable.ic_baseline_music_note_24)
+                .setSubText("Linhnt")
+                .setContentTitle("Title of Song")
+                .setContentText("Single of Song")
+                .setLargeIcon(bitmap)
+                .addAction(R.drawable.ic_baseline_skip_previous_24, "Pre", null)
+                .addAction(R.drawable.ic_baseline_pause_24, "Pause", null)
+                .addAction(R.drawable.ic_baseline_skip_previous_24, "Next", null)
+                .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
+                        .setShowActionsInCompactView(1)
+                        //todo Couldn't find a unique registered media button receiver in the given context.
+                        //.setMediaSession(mediaSessionCompat.getSessionToken())
+                        )
+                .build();
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        notificationManagerCompat.notify(getNotificationId(), notification);
+
     }
 }
