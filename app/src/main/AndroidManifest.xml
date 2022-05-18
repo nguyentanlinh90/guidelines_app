@@ -16,12 +16,16 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".modules.notification.DetailActivity"
+            android:excludeFromRecents="true"
             android:exported="false"
-            android:parentActivityName=".modules.notification.ProductActivity" />
+            android:launchMode="singleTask"
+            android:taskAffinity="" />
         <activity
             android:name=".modules.notification.ProductActivity"
+            android:excludeFromRecents="true"
             android:exported="false"
-            android:parentActivityName=".modules.notification.NotificationActivity" />
+            android:launchMode="singleTask"
+            android:taskAffinity="" />
         <activity
             android:name=".modules.retrofit.RetrofitActivity"
             android:exported="false" />

@@ -15,7 +15,6 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RemoteViews;
 
@@ -137,7 +136,8 @@ public class NotificationActivity extends AppCompatActivity {
                 .setSound(sound)
                 .setCustomContentView(remoteViews)
                 .setCustomBigContentView(remoteViewsExpand)
-                .setContentIntent(gotoProduct())
+//                .setContentIntent(pendingIntentRegular())
+                .setContentIntent(pendingIntentSpecial())
                 .setAutoCancel(true) // delete notification on notification bar after click
                 .build();
 
@@ -145,11 +145,31 @@ public class NotificationActivity extends AppCompatActivity {
         notificationManagerCompat.notify(getNotificationId(), notification);
     }
 
-    private PendingIntent gotoProduct() {
+    private PendingIntent pendingIntentRegular() {
+        //will goto ResultActivity, if backpress will goto ProductActivity, continue backpress will go to NotificationActivity
+        /*need insert
+        android:parentActivityName=".modules.notification.ProductActivity"
+        to Manifest*/
         Intent intent = new Intent(this, DetailActivity.class);
         TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(this);
         taskStackBuilder.addNextIntentWithParentStack(intent);
         PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        return pendingIntent;
+    }
+
+    private PendingIntent pendingIntentSpecial() {
+        //OPEN SEPARATE SCREEN, will show 2 task when click multitasking on device
+
+        //will goto ResultActivity, if backpress will goto NotificationActivity, not back to ProductActivity
+
+        /*need insert
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+        to Manifest*/
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         return pendingIntent;
     }
 }
