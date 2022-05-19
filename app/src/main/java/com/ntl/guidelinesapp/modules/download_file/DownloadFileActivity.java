@@ -27,7 +27,7 @@ public class DownloadFileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download_file);
-
+        getSupportActionBar().setTitle("DownloadFileActivity");
         edtUrl = findViewById(R.id.edt_url);
         btStartDownload = findViewById(R.id.bt_start_download);
 

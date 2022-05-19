@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.ntl.guidelinesapp.AppUtils;
 
-public class MyBroadcastReceiver extends BroadcastReceiver {
+public class ListenerNetworkBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.e("linhnt", "connect");

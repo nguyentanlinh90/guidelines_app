@@ -17,10 +17,20 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.broadcast_receiver.CustomBroadcastReceiverActivity"
+            android:parentActivityName=".modules.broadcast_receiver.BroadcastReceiverActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.broadcast_receiver.ListenerNetworkActivity"
+            android:parentActivityName=".modules.broadcast_receiver.BroadcastReceiverActivity"
+            android:exported="false" />
+        <activity
             android:name=".modules.broadcast_receiver.BroadcastReceiverActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".modules.download_file.DownloadFileActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".modules.notification.DetailActivity"
@@ -36,9 +46,11 @@
             android:taskAffinity="" />
         <activity
             android:name=".modules.retrofit.RetrofitActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".modules.notification.NotificationActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -49,7 +61,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.broadcast_receiver.MyBroadcastReceiver;
+import com.ntl.guidelinesapp.modules.broadcast_receiver.ListenerNetworkBroadcastReceiver;
 
 public class MyApplication extends Application {
     public static final String CHANNEL_ID = "CHANNEL_ID";
@@ -55,7 +55,7 @@ public class MyApplication extends Application {
     private void registerConnectivity() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(new MyBroadcastReceiver(), intentFilter);
+        registerReceiver(new ListenerNetworkBroadcastReceiver(), intentFilter);
     }
 
 }

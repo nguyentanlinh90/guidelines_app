@@ -86,7 +86,7 @@ public class RetrofitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
-
+        getSupportActionBar().setTitle("RetrofitActivity");
         btDemoGetApi = findViewById(R.id.bt_get_api_demo);
         btSelectImage = findViewById(R.id.bt_select_img);
         btUploadUser = findViewById(R.id.bt_upload);
