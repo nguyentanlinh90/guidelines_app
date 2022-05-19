@@ -17,9 +17,10 @@ import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivit
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
+import com.ntl.guidelinesapp.modules.send_data_to_fragment.SendDataToFragmentActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btRetrofit, btNotification, btDownloadFile, btBroadcastReceiver;
+    private Button btRetrofit, btNotification, btDownloadFile, btBroadcastReceiver, btSendDataToFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +31,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btNotification = findViewById(R.id.bt_notification);
         btDownloadFile = findViewById(R.id.bt_download_file);
         btBroadcastReceiver = findViewById(R.id.bt_broadcast_receiver);
+        btSendDataToFragment = findViewById(R.id.bt_send_data_to_fragment);
 
         btNotification.setOnClickListener(this);
         btRetrofit.setOnClickListener(this);
         btDownloadFile.setOnClickListener(this);
         btBroadcastReceiver.setOnClickListener(this);
+        btSendDataToFragment.setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_broadcast_receiver:
                 gotoScreen(BroadcastReceiverActivity.class);
+                break;
+            case R.id.bt_send_data_to_fragment:
+                gotoScreen(SendDataToFragmentActivity.class);
                 break;
 
         }

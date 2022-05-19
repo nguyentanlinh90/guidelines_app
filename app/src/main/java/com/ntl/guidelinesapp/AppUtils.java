@@ -1,11 +1,14 @@
 package com.ntl.guidelinesapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 public class AppUtils {
     public static boolean isNetworkAvailable(Context context) {
@@ -32,6 +35,13 @@ public class AppUtils {
 
     }
 
-    ;
+    public static void hideSoftKeyBoard(View view) {
+        try {
+            InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
