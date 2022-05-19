@@ -12,7 +12,7 @@ import android.widget.EditText;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 
-public class SendDataToFragmentActivity extends AppCompatActivity implements ISendDataToActivity{
+public class SendDataActivityToFragmentActivity extends AppCompatActivity implements ISendDataToActivity{
     private EditText edtEmail;
     private Button btSend;
 
@@ -21,7 +21,7 @@ public class SendDataToFragmentActivity extends AppCompatActivity implements ISe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_data_to_fragment);
 
-        getSupportActionBar().setTitle("SendDataToFragmentActivity");
+        getSupportActionBar().setTitle("SendDataActivityToFragmentActivity");
 
         edtEmail = findViewById(R.id.edt_email);
         edtEmail.setImeOptions(EditorInfo.IME_ACTION_DONE);

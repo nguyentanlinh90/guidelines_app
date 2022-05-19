@@ -25,7 +25,7 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".modules.send_data_to_fragment.SendDataToFragmentActivity"
+            android:name=".modules.send_data_to_fragment.SendDataActivityToFragmentActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity

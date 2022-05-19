@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.ntl.guidelinesapp.MainActivity;
 import com.ntl.guidelinesapp.R;
 
 /**
@@ -31,7 +30,7 @@ public class HomeFragment extends androidx.fragment.app.Fragment {
     private Button btUpdate;
 
     private View mView;
-    private SendDataToFragmentActivity mainActivity;
+    private SendDataActivityToFragmentActivity mainActivity;
 
     private ISendDataToActivity iSendDataToActivity;
 
@@ -71,7 +70,7 @@ public class HomeFragment extends androidx.fragment.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_home, container, false);
-        mainActivity = (SendDataToFragmentActivity) getActivity();
+        mainActivity = (SendDataActivityToFragmentActivity) getActivity();
         initUI();
         return mView;
     }

@@ -12,7 +12,7 @@
     <string name="screen_retrofit">Retrofit</string>
     <string name="screen_download_file">Download File</string>
     <string name="screen_broadcast_receiver">Broadcast Receiver</string>
-    <string name="screen_data_to_fragment">Send Data Activity to Fragment</string>
+    <string name="screen_data_activity_to_fragment">Send Data Activity to Fragment</string>
     <string name="screen_data_fragment_to_fragment">Send Data Fragment to Fragment</string>
     <string name="share_preference">SharePreference</string>
     <!-- TODO: Remove or change this placeholder text -->

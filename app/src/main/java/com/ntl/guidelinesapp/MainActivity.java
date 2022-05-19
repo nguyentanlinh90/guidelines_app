@@ -6,72 +6,83 @@
 
 package com.ntl.guidelinesapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivity;
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
-import com.ntl.guidelinesapp.modules.send_data_to_fragment.SendDataToFragmentActivity;
+import com.ntl.guidelinesapp.modules.send_data_to_fragment.SendDataActivityToFragmentActivity;
+import com.ntl.guidelinesapp.modules.sharepreference.SharePreferenceActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btRetrofit, btNotification, btDownloadFile,
-            btBroadcastReceiver, btSendDataActivityToFragment, btSendDataFragmentToFragment,
-    btSharePreference;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements ButtonAdapter.IClickButton {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btRetrofit = findViewById(R.id.bt_retrofit);
-        btNotification = findViewById(R.id.bt_notification);
-        btDownloadFile = findViewById(R.id.bt_download_file);
-        btBroadcastReceiver = findViewById(R.id.bt_broadcast_receiver);
-        btSendDataActivityToFragment = findViewById(R.id.bt_send_data_to_fragment);
-        btSendDataFragmentToFragment = findViewById(R.id.bt_send_data_fragment_to_fragment);
-        btSharePreference = findViewById(R.id.bt_share_preference);
+        initButton();
 
-        btNotification.setOnClickListener(this);
-        btRetrofit.setOnClickListener(this);
-        btDownloadFile.setOnClickListener(this);
-        btBroadcastReceiver.setOnClickListener(this);
-        btSendDataActivityToFragment.setOnClickListener(this);
-        btSendDataFragmentToFragment.setOnClickListener(this);
-        btSharePreference.setOnClickListener(this);
+    }
+
+    private void initButton() {
+        RecyclerView rcvButton = findViewById(R.id.rcv_button);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        rcvButton.setLayoutManager(manager);
+
+        ButtonAdapter adapter = new ButtonAdapter();
+        adapter.setData(getListButton(), this);
+        rcvButton.setAdapter(adapter);
+    }
+
+    private List<ButtonModel> getListButton() {
+        List<ButtonModel> buttons = new ArrayList<>();
+
+        buttons.add(new ButtonModel(1, getResources().getString(R.string.screen_retrofit)));
+        buttons.add(new ButtonModel(2, getResources().getString(R.string.screen_notification)));
+        buttons.add(new ButtonModel(3, getResources().getString(R.string.screen_download_file)));
+        buttons.add(new ButtonModel(4, getResources().getString(R.string.screen_broadcast_receiver)));
+        buttons.add(new ButtonModel(5, getResources().getString(R.string.screen_data_activity_to_fragment)));
+        buttons.add(new ButtonModel(6, getResources().getString(R.string.screen_data_fragment_to_fragment)));
+        buttons.add(new ButtonModel(7, getResources().getString(R.string.share_preference)));
+
+        return buttons;
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.bt_notification:
-                gotoScreen(NotificationActivity.class);
-                break;
-            case R.id.bt_retrofit:
+    public void onClickButton(ButtonModel buttonModel) {
+        switch (buttonModel.getId()) {
+            case 1:
                 gotoScreen(RetrofitActivity.class);
                 break;
-            case R.id.bt_download_file:
+            case 2:
+                gotoScreen(NotificationActivity.class);
+                break;
+            case 3:
                 gotoScreen(DownloadFileActivity.class);
                 break;
-            case R.id.bt_broadcast_receiver:
+            case 4:
                 gotoScreen(BroadcastReceiverActivity.class);
                 break;
-            case R.id.bt_send_data_to_fragment:
-                gotoScreen(SendDataToFragmentActivity.class);
+            case 5:
+                gotoScreen(SendDataActivityToFragmentActivity.class);
                 break;
-
-            case R.id.bt_send_data_fragment_to_fragment:
+            case 6:
                 gotoScreen(SendDataFragmentToFragmentActivity.class);
                 break;
-            case R.id.bt_share_preference:
-
-
+            case 7:
+                gotoScreen(SharePreferenceActivity.class);
+                break;
         }
     }
 

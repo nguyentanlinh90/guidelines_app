@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".modules.send_data_to_fragment.SendDataToFragmentActivity">
+    tools:context=".modules.send_data_to_fragment.SendDataActivityToFragmentActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
