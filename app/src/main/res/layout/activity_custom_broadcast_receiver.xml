@@ -56,4 +56,55 @@
             android:textSize="16dp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/bt_send_broadcast_explicit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="send broadcast explicit" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_green_dark"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/bt_send_broadcast_to_1_pj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="send broadcast to 1 project" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/bt_send_broadcast_to_many_pj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="send broadcast to many project" />
+
+    </LinearLayout>
+
 </LinearLayout>
