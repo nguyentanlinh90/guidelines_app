@@ -20,6 +20,7 @@ import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
 import com.ntl.guidelinesapp.modules.send_data_to_fragment.SendDataActivityToFragmentActivity;
 import com.ntl.guidelinesapp.modules.sharepreference.SharePreferenceActivity;
+import com.ntl.guidelinesapp.modules.viewpager_fragment.ViewpagerFragmentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(new ButtonModel(5, getResources().getString(R.string.screen_data_activity_to_fragment)));
         buttons.add(new ButtonModel(6, getResources().getString(R.string.screen_data_fragment_to_fragment)));
         buttons.add(new ButtonModel(7, getResources().getString(R.string.share_preference)));
+        buttons.add(new ButtonModel(8, getResources().getString(R.string.viewpager_fragment)));
 
         return buttons;
     }
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 7:
                 gotoScreen(SharePreferenceActivity.class);
+                break;
+            case 8:
+                gotoScreen(ViewpagerFragmentActivity.class);
                 break;
         }
     }
