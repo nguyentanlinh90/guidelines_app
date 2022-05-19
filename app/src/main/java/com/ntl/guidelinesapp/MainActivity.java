@@ -21,7 +21,9 @@ import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFrag
 import com.ntl.guidelinesapp.modules.send_data_to_fragment.SendDataToFragmentActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btRetrofit, btNotification, btDownloadFile, btBroadcastReceiver, btSendDataActivityToFragment, btSendDataFragmentToFragment;
+    private Button btRetrofit, btNotification, btDownloadFile,
+            btBroadcastReceiver, btSendDataActivityToFragment, btSendDataFragmentToFragment,
+    btSharePreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btBroadcastReceiver = findViewById(R.id.bt_broadcast_receiver);
         btSendDataActivityToFragment = findViewById(R.id.bt_send_data_to_fragment);
         btSendDataFragmentToFragment = findViewById(R.id.bt_send_data_fragment_to_fragment);
+        btSharePreference = findViewById(R.id.bt_share_preference);
 
         btNotification.setOnClickListener(this);
         btRetrofit.setOnClickListener(this);
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btBroadcastReceiver.setOnClickListener(this);
         btSendDataActivityToFragment.setOnClickListener(this);
         btSendDataFragmentToFragment.setOnClickListener(this);
+        btSharePreference.setOnClickListener(this);
     }
 
     @Override
@@ -65,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_send_data_fragment_to_fragment:
                 gotoScreen(SendDataFragmentToFragmentActivity.class);
                 break;
+            case R.id.bt_share_preference:
+
 
         }
     }

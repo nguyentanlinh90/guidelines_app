@@ -52,6 +52,13 @@
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:text="@string/screen_data_fragment_to_fragment" />
+
+        <Button
+            android:id="@+id/bt_share_preference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="@string/share_preference" />
     </LinearLayout>
 
 </ScrollView>
