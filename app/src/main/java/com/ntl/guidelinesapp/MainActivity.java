@@ -17,10 +17,11 @@ import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivit
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
+import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
 import com.ntl.guidelinesapp.modules.send_data_to_fragment.SendDataToFragmentActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btRetrofit, btNotification, btDownloadFile, btBroadcastReceiver, btSendDataToFragment;
+    private Button btRetrofit, btNotification, btDownloadFile, btBroadcastReceiver, btSendDataActivityToFragment, btSendDataFragmentToFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btNotification = findViewById(R.id.bt_notification);
         btDownloadFile = findViewById(R.id.bt_download_file);
         btBroadcastReceiver = findViewById(R.id.bt_broadcast_receiver);
-        btSendDataToFragment = findViewById(R.id.bt_send_data_to_fragment);
+        btSendDataActivityToFragment = findViewById(R.id.bt_send_data_to_fragment);
+        btSendDataFragmentToFragment = findViewById(R.id.bt_send_data_fragment_to_fragment);
 
         btNotification.setOnClickListener(this);
         btRetrofit.setOnClickListener(this);
         btDownloadFile.setOnClickListener(this);
         btBroadcastReceiver.setOnClickListener(this);
-        btSendDataToFragment.setOnClickListener(this);
+        btSendDataActivityToFragment.setOnClickListener(this);
+        btSendDataFragmentToFragment.setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_send_data_to_fragment:
                 gotoScreen(SendDataToFragmentActivity.class);
+                break;
+
+            case R.id.bt_send_data_fragment_to_fragment:
+                gotoScreen(SendDataFragmentToFragmentActivity.class);
                 break;
 
         }

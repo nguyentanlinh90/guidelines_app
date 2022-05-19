@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">GuidelinesApp</string>
+    <string name="send">Send</string>
+    <string name="update">Update</string>
+    <string name="email">Email</string>
 
     <string name="screen_notification">Notification</string>
     <string name="channel_name">Channel 1</string>
     <string name="channel_des">This is Channel 1</string>
     <string name="channel_name_2">Channel 2</string>
     <string name="channel_des_2">This is Channel 2</string>
-
     <string name="screen_retrofit">Retrofit</string>
-
     <string name="screen_download_file">Download File</string>
-
     <string name="screen_broadcast_receiver">Broadcast Receiver</string>
-    
-    <string name="screen_data_to_fragment">Send Data to Fragment</string>
+    <string name="screen_data_to_fragment">Send Data Activity to Fragment</string>
+    <string name="screen_data_fragment_to_fragment">Send Data Fragment to Fragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

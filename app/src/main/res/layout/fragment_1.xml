@@ -3,23 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".modules.send_data_to_fragment.HomeFragment">
-
+    tools:context=".modules.send_data_to_fragment.SendDataToFragmentActivity">
 
     <EditText
         android:id="@+id/edt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:imeOptions="actionDone"
-        android:hint="@string/email" />
+        android:hint="@string/email"
+        android:imeOptions="actionDone" />
 
     <Button
-        android:id="@+id/bt_update_to_activity"
+        android:id="@+id/bt_send_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/update" />
+        android:text="@string/send" />
 
 </LinearLayout>

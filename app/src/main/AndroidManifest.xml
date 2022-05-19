@@ -17,9 +17,13 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".modules.send_data_to_fragment.SendDataToFragmentActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".modules.broadcast_receiver.CustomBroadcastReceiverActivity"
             android:exported="false"

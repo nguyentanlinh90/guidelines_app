@@ -20,14 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
-            android:hint="Email" />
+            android:hint="@string/email" />
 
         <Button
             android:id="@+id/bt_send_data_to_fragment"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Send data"/>
+            android:text="@string/send"/>
     </LinearLayout>
 
     <FrameLayout
