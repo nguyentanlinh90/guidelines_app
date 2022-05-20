@@ -21,6 +21,13 @@
         android:layout_marginHorizontal="16dp"
         android:text="Type Model" />
 
+    <Button
+        android:id="@+id/bt_bottom_sheet_dialog_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="Open BottomSheetDialogFragment" />
+
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="match_parent"

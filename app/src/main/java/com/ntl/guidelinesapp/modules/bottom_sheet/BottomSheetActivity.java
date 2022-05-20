@@ -11,10 +11,12 @@ import android.widget.Button;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.general.model.General;
 
 public class BottomSheetActivity extends AppCompatActivity {
-    private Button btPersistent, btModel;
+    private Button btPersistent, btModel, btBottomSheetDialogFragment;
     private BottomSheetDialog modelSheetDialog;
+    private MyBottomSheetDialogFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class BottomSheetActivity extends AppCompatActivity {
 
         btPersistent = findViewById(R.id.bt_persistent);
         btModel = findViewById(R.id.bt_model);
+        btBottomSheetDialogFragment = findViewById(R.id.bt_bottom_sheet_dialog_fragment);
 
         btPersistent.setOnClickListener(v -> {
             openPersistentBottomSheetFragment();
@@ -31,6 +34,10 @@ public class BottomSheetActivity extends AppCompatActivity {
 
         btModel.setOnClickListener(v -> {
             openModelBottomSheetFragment();
+        });
+
+        btBottomSheetDialogFragment.setOnClickListener(v -> {
+            openBottomSheetDialogFragment();
         });
     }
 
@@ -79,5 +86,22 @@ public class BottomSheetActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fl_content, new ModelBottomSheetFragment());
         transaction.commit();
+    }
+
+    private void openBottomSheetDialogFragment() {
+        General general = new General("This is Linh");
+
+        fragment = new MyBottomSheetDialogFragment().getInstance(general);
+        fragment.show(getSupportFragmentManager(), MyBottomSheetDialogFragment.class.getName());
+
+        //disable dismiss dialog when click outside
+        fragment.setCancelable(false);
+
+    }
+
+    public void dismissBottomSheetFragment() {
+        if (fragment != null) {
+            fragment.dismiss();
+        }
     }
 }
