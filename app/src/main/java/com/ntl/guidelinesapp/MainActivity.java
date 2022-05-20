@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ntl.guidelinesapp.modules.bottom_sheet.BottomSheetActivity;
 import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivity;
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
+import com.ntl.guidelinesapp.modules.filter_recyclerview.FilterRecyclerViewActivity;
 import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(8, getResources().getString(R.string.viewpager_fragment)));
         buttons.add(0, new ButtonModel(9, getResources().getString(R.string.keep_state_fragment)));
         buttons.add(0, new ButtonModel(10, getResources().getString(R.string.bottom_sheet)));
+        buttons.add(0, new ButtonModel(11, getResources().getString(R.string.filter_rcv)));
 
         return buttons;
     }
@@ -97,6 +99,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 10:
                 gotoScreen(BottomSheetActivity.class);
+                break;
+            case 11:
+                gotoScreen(FilterRecyclerViewActivity.class);
                 break;
         }
     }
