@@ -18,6 +18,7 @@ import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivit
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.filter_recyclerview.FilterRecyclerViewActivity;
 import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivity;
+import com.ntl.guidelinesapp.modules.mvp.MVPActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(9, getResources().getString(R.string.keep_state_fragment)));
         buttons.add(0, new ButtonModel(10, getResources().getString(R.string.bottom_sheet)));
         buttons.add(0, new ButtonModel(11, getResources().getString(R.string.filter_rcv)));
+        buttons.add(0, new ButtonModel(12, getResources().getString(R.string.mvp)));
 
         return buttons;
     }
@@ -102,6 +104,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 11:
                 gotoScreen(FilterRecyclerViewActivity.class);
+                break;
+            case 12:
+                gotoScreen(MVPActivity.class);
                 break;
         }
     }
