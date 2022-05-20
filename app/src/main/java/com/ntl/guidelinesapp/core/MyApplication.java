@@ -18,6 +18,7 @@ import com.ntl.guidelinesapp.modules.sharepreference.DataLocalManager;
 public class MyApplication extends Application {
     public static final String CHANNEL_ID = "CHANNEL_ID";
     public static final String CHANNEL_ID_2 = "CHANNEL_ID_2";
+    public static final String CHANNEL_ID_3 = "CHANNEL_ID_3";
 
     @Override
     public void onCreate() {
@@ -45,10 +46,15 @@ public class MyApplication extends Application {
             Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
             channel2.setSound(sound, audioAttributes);
 
+            //config channel 3
+            NotificationChannel channel3 = new NotificationChannel(CHANNEL_ID_3, getString(R.string.channel_name_3), NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription(getString(R.string.channel_des_3));
+
             NotificationManager manager = getSystemService(NotificationManager.class);
             if (manager != null) {
                 manager.createNotificationChannel(channel);
                 manager.createNotificationChannel(channel2);
+                manager.createNotificationChannel(channel3);
             }
         }
     }

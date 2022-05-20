@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "246906926128",
+    "project_id": "guidelinesapp-a000d",
+    "storage_bucket": "guidelinesapp-a000d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246906926128:android:f4b2e89ebf40e0cd85a9f5",
+        "android_client_info": {
+          "package_name": "com.ntl.guidelinesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246906926128-ghtog7r4o4fo9vtnv447t9is2voffj0f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ntl.guidelinesapp",
+            "certificate_hash": "9d15b4e5fcc22821df5fea08fcffbfe953bde08b"
+          }
+        },
+        {
+          "client_id": "246906926128-q7eb918ufn7u8a9s27ouk7hnmfk86jli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYABfQusFT7uXDvFbOAbbD6Buopi98IhI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246906926128-q7eb918ufn7u8a9s27ouk7hnmfk86jli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,17 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
+    signingConfigs {
+        my_config {
+            storeFile file('/Users/nguyentanlinh/Documents/development/pv/keystore_release_guidelines_app')
+            storePassword 'Linh2910'
+            keyAlias 'GuidelinesApp'
+            keyPassword 'Linh2910'
+        }
+    }
     compileSdk 31
 
     defaultConfig {
@@ -19,6 +28,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.my_config
         }
     }
     compileOptions {
@@ -46,5 +56,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.7.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
     implementation 'androidx.media:media:1.6.0'
+
+    //sdk
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    //fcm, don't need add version, version will follow sdk version
+    implementation 'com.google.firebase:firebase-messaging'
+    //analytics
+    implementation 'com.google.firebase:firebase-analytics'
 
 }

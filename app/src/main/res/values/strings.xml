@@ -9,6 +9,8 @@
     <string name="channel_des">This is Channel 1</string>
     <string name="channel_name_2">Channel 2</string>
     <string name="channel_des_2">This is Channel 2</string>
+    <string name="channel_name_3">Channel 3</string>
+    <string name="channel_des_3">This is Channel 3</string>
     <string name="screen_retrofit">Retrofit</string>
     <string name="screen_download_file">Download File</string>
     <string name="screen_broadcast_receiver">Broadcast Receiver</string>
@@ -21,6 +23,7 @@
     <string name="filter_rcv">Filter RecyclerView</string>
     <string name="mvp">MVP</string>
     <string name="mvvm">MVVM</string>
+    <string name="fcm">Firebase Cloud Message - FCM</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_test">Ngày 20/5, ông Hai và Nguyễn Thị Lệ Ngọc (39 tuổi, Phó trưởng khoa xét nghiệm - Chẩn đoán hình ảnh - Thăm dò chức năng thuộc CDC Đồng Tháp) bị Công an Đồng Tháp bắt tạm giam về hành vi Vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng theo khoản 3 Điều 222 Bộ luật Hình sự.
