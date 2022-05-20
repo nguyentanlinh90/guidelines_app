@@ -3,27 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
     android:orientation="vertical"
     tools:context=".modules.bottom_sheet.BottomSheetActivity">
 
-    <Button
+    <TextView
         android:id="@+id/bt_persistent"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="16dp"
-        android:text="Type Persistent" />
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:text="ModelBottomFragment"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 
     <Button
-        android:id="@+id/bt_model"
+        android:id="@+id/bt_open"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginHorizontal="16dp"
-        android:text="Type Model" />
-
-    <FrameLayout
-        android:id="@+id/fl_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_margin="16dp"
+        android:text="OPEN BOTTOMSHEET" />
 </LinearLayout>
 
