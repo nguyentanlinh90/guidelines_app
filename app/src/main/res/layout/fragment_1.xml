@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".modules.send_data_to_fragment.SendDataActivityToFragmentActivity">
+    tools:context=".modules.send_data_activity_to_fragment.SendDataActivityToFragmentActivity">
 
     <EditText
         android:id="@+id/edt_email"

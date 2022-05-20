@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.send_data_to_fragment;
+package com.ntl.guidelinesapp.modules.send_data_activity_to_fragment;
 
 import android.os.Bundle;
 

@@ -20,7 +20,7 @@ import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivi
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
-import com.ntl.guidelinesapp.modules.send_data_to_fragment.SendDataActivityToFragmentActivity;
+import com.ntl.guidelinesapp.modules.send_data_activity_to_fragment.SendDataActivityToFragmentActivity;
 import com.ntl.guidelinesapp.modules.sharepreference.SharePreferenceActivity;
 import com.ntl.guidelinesapp.modules.viewpager_fragment.ViewpagerFragmentActivity;
 
