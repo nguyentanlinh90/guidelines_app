@@ -17,6 +17,10 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.bottom_sheet.BottomSheetActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".modules.keep_state_fragment.KeepStateFragmentActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />

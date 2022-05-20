@@ -17,6 +17,7 @@
     <string name="share_preference">SharePreference</string>
     <string name="viewpager_fragment">ViewPager With Fragment</string>
     <string name="keep_state_fragment">Keep State Fragment</string>
+    <string name="bottom_sheet">Bottom Sheet</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ntl.guidelinesapp.modules.bottom_sheet.BottomSheetActivity;
 import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivity;
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivity;
@@ -50,15 +51,16 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
     private List<ButtonModel> getListButton() {
         List<ButtonModel> buttons = new ArrayList<>();
 
-        buttons.add(new ButtonModel(1, getResources().getString(R.string.screen_retrofit)));
-        buttons.add(new ButtonModel(2, getResources().getString(R.string.screen_notification)));
-        buttons.add(new ButtonModel(3, getResources().getString(R.string.screen_download_file)));
-        buttons.add(new ButtonModel(4, getResources().getString(R.string.screen_broadcast_receiver)));
-        buttons.add(new ButtonModel(5, getResources().getString(R.string.screen_data_activity_to_fragment)));
-        buttons.add(new ButtonModel(6, getResources().getString(R.string.screen_data_fragment_to_fragment)));
-        buttons.add(new ButtonModel(7, getResources().getString(R.string.share_preference)));
-        buttons.add(new ButtonModel(8, getResources().getString(R.string.viewpager_fragment)));
-        buttons.add(new ButtonModel(9, getResources().getString(R.string.keep_state_fragment)));
+        buttons.add(0, new ButtonModel(1, getResources().getString(R.string.screen_retrofit)));
+        buttons.add(0, new ButtonModel(2, getResources().getString(R.string.screen_notification)));
+        buttons.add(0, new ButtonModel(3, getResources().getString(R.string.screen_download_file)));
+        buttons.add(0, new ButtonModel(4, getResources().getString(R.string.screen_broadcast_receiver)));
+        buttons.add(0, new ButtonModel(5, getResources().getString(R.string.screen_data_activity_to_fragment)));
+        buttons.add(0, new ButtonModel(6, getResources().getString(R.string.screen_data_fragment_to_fragment)));
+        buttons.add(0, new ButtonModel(7, getResources().getString(R.string.share_preference)));
+        buttons.add(0, new ButtonModel(8, getResources().getString(R.string.viewpager_fragment)));
+        buttons.add(0, new ButtonModel(9, getResources().getString(R.string.keep_state_fragment)));
+        buttons.add(0, new ButtonModel(10, getResources().getString(R.string.bottom_sheet)));
 
         return buttons;
     }
@@ -92,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 9:
                 gotoScreen(KeepStateFragmentActivity.class);
+                break;
+            case 10:
+                gotoScreen(BottomSheetActivity.class);
                 break;
         }
     }
