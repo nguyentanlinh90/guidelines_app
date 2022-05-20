@@ -1,5 +1,7 @@
 package com.ntl.guidelinesapp.modules.mvp;
 
+import com.ntl.guidelinesapp.general.model.User;
+
 public class LoginPresenter {
     private ILoginListener iLoginListener;
 

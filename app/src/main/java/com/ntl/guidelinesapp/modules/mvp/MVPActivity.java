@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.general.model.User;
 
 public class MVPActivity extends AppCompatActivity implements ILoginListener {
     private EditText edtEmail, edtPass;

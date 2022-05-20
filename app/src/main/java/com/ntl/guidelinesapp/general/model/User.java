@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.mvp;
+package com.ntl.guidelinesapp.general.model;
 
 public class User {
     private String email;
