@@ -13,6 +13,7 @@ import android.os.Build;
 
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.broadcast_receiver.ListenerNetworkBroadcastReceiver;
+import com.ntl.guidelinesapp.modules.sharepreference.DataLocalManager;
 
 public class MyApplication extends Application {
     public static final String CHANNEL_ID = "CHANNEL_ID";
@@ -22,6 +23,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         createNotificationChannel();
+        DataLocalManager.init(getApplicationContext());
 //        registerConnectivity();
     }
 
