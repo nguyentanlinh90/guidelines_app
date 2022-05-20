@@ -3,6 +3,7 @@ package com.ntl.guidelinesapp.modules.keep_state_fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -83,6 +84,9 @@ public class UserFragment extends Fragment implements GeneralAdapter.IOnClickIte
 
         adapter = new GeneralAdapter(getList(), this);
         recyclerView.setAdapter(adapter);
+
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(itemDecoration);
 
         return mView;
     }
