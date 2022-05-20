@@ -16,6 +16,7 @@
     <string name="screen_data_fragment_to_fragment">Send Data Fragment to Fragment</string>
     <string name="share_preference">SharePreference</string>
     <string name="viewpager_fragment">ViewPager With Fragment</string>
+    <string name="keep_state_fragment">Keep State Fragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

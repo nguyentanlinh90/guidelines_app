@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivity;
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
+import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(new ButtonModel(6, getResources().getString(R.string.screen_data_fragment_to_fragment)));
         buttons.add(new ButtonModel(7, getResources().getString(R.string.share_preference)));
         buttons.add(new ButtonModel(8, getResources().getString(R.string.viewpager_fragment)));
+        buttons.add(new ButtonModel(9, getResources().getString(R.string.keep_state_fragment)));
 
         return buttons;
     }
@@ -87,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 8:
                 gotoScreen(ViewpagerFragmentActivity.class);
+                break;
+            case 9:
+                gotoScreen(KeepStateFragmentActivity.class);
                 break;
         }
     }
