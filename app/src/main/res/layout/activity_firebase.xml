@@ -14,4 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Verify Phone" />
+    <Button
+        android:id="@+id/bt_email_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Email Password" />
 </LinearLayout>

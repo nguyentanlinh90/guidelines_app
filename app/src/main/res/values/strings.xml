@@ -23,7 +23,7 @@
     <string name="filter_rcv">Filter RecyclerView</string>
     <string name="mvp">MVP</string>
     <string name="mvvm">MVVM</string>
-    <string name="fcm">Firebase Cloud Message - FCM</string>
+    <string name="firebase">Firebase</string>
     <string name="template">Template</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

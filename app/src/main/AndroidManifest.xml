@@ -17,6 +17,10 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.firebase.email_password.EmailPasswordActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.firebase.FirebaseActivity"/>
+        <activity
             android:name=".modules.template.navigationdrawer_toolbar_fragment.NavigationDrawerToolbarFragmentActivity"
             android:exported="false"
             android:parentActivityName=".modules.template.TemplateActivity"

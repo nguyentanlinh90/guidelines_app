@@ -8,16 +8,11 @@ package com.ntl.guidelinesapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.ntl.guidelinesapp.modules.bottom_sheet.BottomSheetActivity;
 import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivity;
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
@@ -88,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(11, getResources().getString(R.string.filter_rcv)));
         buttons.add(0, new ButtonModel(12, getResources().getString(R.string.mvp)));
         buttons.add(0, new ButtonModel(13, getResources().getString(R.string.mvvm)));
-        buttons.add(0, new ButtonModel(14, getResources().getString(R.string.fcm)));
+        buttons.add(0, new ButtonModel(14, getResources().getString(R.string.firebase)));
         buttons.add(0, new ButtonModel(15, getResources().getString(R.string.template)));
 
         return buttons;
