@@ -2,6 +2,7 @@ package com.ntl.guidelinesapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class AppUtils {
     public static boolean isNetworkAvailable(Context context) {
@@ -60,6 +62,11 @@ public class AppUtils {
         if (context.getSupportActionBar() != null) {
             context.getSupportActionBar().setTitle(title);
         }
+    }
+
+    public static void gotoScreen(Context context, Class<?> cls) {
+        Intent intent = new Intent(context, cls);
+        context.startActivity(intent);
     }
 
 }

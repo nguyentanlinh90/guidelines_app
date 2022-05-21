@@ -31,6 +31,7 @@ import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
 import com.ntl.guidelinesapp.modules.send_data_activity_to_fragment.SendDataActivityToFragmentActivity;
 import com.ntl.guidelinesapp.modules.sharepreference.SharePreferenceActivity;
+import com.ntl.guidelinesapp.modules.template.TemplateActivity;
 import com.ntl.guidelinesapp.modules.viewpager_fragment.ViewpagerFragmentActivity;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
 
         initButton();
 
-        FirebaseMessaging.getInstance().getToken()
+        /*FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                         String token = task.getResult();
                         Log.e(TAG, token);
                     }
-                });
+                });*/
     }
 
     private void initButton() {
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(12, getResources().getString(R.string.mvp)));
         buttons.add(0, new ButtonModel(13, getResources().getString(R.string.mvvm)));
         buttons.add(0, new ButtonModel(14, getResources().getString(R.string.fcm)));
+        buttons.add(0, new ButtonModel(15, getResources().getString(R.string.template)));
 
         return buttons;
     }
@@ -136,6 +138,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 14:
                 gotoScreen(FirebaseActivity.class);
+                break;
+            case 15:
+                gotoScreen(TemplateActivity.class);
                 break;
         }
     }

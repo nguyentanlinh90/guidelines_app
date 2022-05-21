@@ -17,9 +17,18 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.template.navigationdrawer_toolbar_fragment.NavigationDrawerToolbarFragmentActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.template.TemplateActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".modules.template.TemplateActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".modules.firebase.verify_phone.VerifyPhoneNumberActivity"
             android:exported="false"
-            android:parentActivityName=".modules.firebase.FirebaseActivity"/>
+            android:parentActivityName=".modules.firebase.FirebaseActivity" />
         <activity
             android:name=".modules.firebase.FirebaseActivity"
             android:exported="false"

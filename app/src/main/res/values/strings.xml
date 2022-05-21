@@ -24,6 +24,7 @@
     <string name="mvp">MVP</string>
     <string name="mvvm">MVVM</string>
     <string name="fcm">Firebase Cloud Message - FCM</string>
+    <string name="template">Template</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_test">Ngày 20/5, ông Hai và Nguyễn Thị Lệ Ngọc (39 tuổi, Phó trưởng khoa xét nghiệm - Chẩn đoán hình ảnh - Thăm dò chức năng thuộc CDC Đồng Tháp) bị Công an Đồng Tháp bắt tạm giam về hành vi Vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng theo khoản 3 Điều 222 Bộ luật Hình sự.
@@ -40,4 +41,6 @@ Theo thông báo kết luận thanh tra việc mua sắm trang thiết bị, v�
 
 Riêng đối với Công ty Việt Á, các đơn vị ở Đồng Tháp đã mua sắm 10 gói thầu với giá trị hợp đồng hơn 233 tỷ đồng. Tuy nhiên, giá trị thực tế mua sắm là hơn 197 tỷ đồng, đã thanh toán cho Việt Á gần 157 tỷ, còn hơn 40,6 tỷ đồng chưa thanh toán.</string>
 
+    <string name="drawer_navigation_open">Drawer Navigation Open</string>
+    <string name="drawer_navigation_close">Drawer Navigation Close</string>
 </resources>
