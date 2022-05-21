@@ -14,6 +14,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.MyApplication;
+import com.ntl.guidelinesapp.modules.firebase.FirebaseActivity;
 
 import java.util.Map;
 
@@ -64,7 +65,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void sendNotification(String strTitle, String strMessage) {
-        Intent intent = new Intent(this, FCMActivity.class);
+        Intent intent = new Intent(this, FirebaseActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID_3)

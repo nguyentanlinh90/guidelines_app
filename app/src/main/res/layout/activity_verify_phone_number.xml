@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".modules.firebase.verify_phone.VerifyPhoneNumberActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_input_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_phone"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:focusable="true"
+            android:hint="Enter phone"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/bt_verify_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:text="Verify Phone Number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_input_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/edt_otp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Enter OTP"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/bt_verify_otp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:text="Verify OTP" />
+
+        <TextView
+            android:id="@+id/tv_not_receiver_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingVertical="16dp"
+            android:text="I didn't receiver OTP" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_login_sucess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN SUCCESS"
+        android:visibility="gone" />
+
+</LinearLayout>

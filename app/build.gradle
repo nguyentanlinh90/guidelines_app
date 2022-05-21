@@ -61,6 +61,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
     //fcm, don't need add version, version will follow sdk version
     implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-auth'
     //analytics
     implementation 'com.google.firebase:firebase-analytics'
 

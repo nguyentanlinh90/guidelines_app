@@ -10,8 +10,8 @@
     tools:context=".modules.firebase.FirebaseActivity">
 
     <Button
-        android:id="@+id/bt_fcm"
+        android:id="@+id/bt_verify_phone"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Firebase Cloud Message - FCM" />
+        android:text="Verify Phone" />
 </LinearLayout>

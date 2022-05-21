@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.firebase.fcm.FCMActivity;
+import com.ntl.guidelinesapp.modules.firebase.verify_phone.VerifyPhoneNumberActivity;
 
 public class FirebaseActivity extends AppCompatActivity {
 
@@ -14,10 +15,11 @@ public class FirebaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firebase);
-        getSupportActionBar().setTitle("FirebaseActivity");
 
-        findViewById(R.id.bt_fcm).setOnClickListener(v->{
-            Intent intent = new Intent(this, FCMActivity.class);
+        AppUtils.setTitleBar(this, FirebaseActivity.class.getSimpleName());
+
+        findViewById(R.id.bt_verify_phone).setOnClickListener(v -> {
+            Intent intent = new Intent(this, VerifyPhoneNumberActivity.class);
             startActivity(intent);
         });
     }

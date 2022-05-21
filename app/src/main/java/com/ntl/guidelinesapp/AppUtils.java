@@ -10,6 +10,8 @@ import android.os.Build;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class AppUtils {
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {
@@ -38,9 +40,25 @@ public class AppUtils {
     public static void hideSoftKeyBoard(View view) {
         try {
             InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
         } catch (NullPointerException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void showSoftKeyBoard(View view) {
+        try {
+            InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+//            imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void setTitleBar(AppCompatActivity context, String title) {
+        if (context.getSupportActionBar() != null) {
+            context.getSupportActionBar().setTitle(title);
         }
     }
 
