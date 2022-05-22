@@ -28,7 +28,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
 
     private LinearLayout llLogin, llLoginSuccess, llRegister;
     private EditText edtLoginEmail, edtRegisterEmail, edtLoginPassword, edtRegisterPassword;
-    private TextView tvUserEmail, tvRegister, tvLogin;
+    private TextView tvUserEmail, tvRegister, tvLogin, tvForgotPassword;
     private Button btLogin, btLogout, btRegister;
 
     private ProgressDialog progressDialog;
@@ -54,6 +54,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
         tvUserEmail = findViewById(R.id.tv_user_email);
         tvRegister = findViewById(R.id.tv_register_user);
         tvLogin = findViewById(R.id.tv_login);
+        tvForgotPassword = findViewById(R.id.tv_forgot_password);
         btLogin = findViewById(R.id.bt_login);
         btLogout = findViewById(R.id.bt_logout);
         btRegister = findViewById(R.id.bt_register);
@@ -85,6 +86,10 @@ public class EmailPasswordActivity extends AppCompatActivity {
 
         btLogout.setOnClickListener(v -> {
             startLogout();
+        });
+
+        tvForgotPassword.setOnClickListener(v -> {
+            clickResetPassword();
         });
     }
 
@@ -162,5 +167,20 @@ public class EmailPasswordActivity extends AppCompatActivity {
     private void gotoHomeScreen() {
         AppUtils.gotoScreen(this, NavigationDrawerToolbarFragmentActivity.class);
         finish();
+    }
+
+    private void clickResetPassword() {
+        progressDialog.show();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String emailAddress = getResources().getString(R.string.my_email);
+
+        auth.sendPasswordResetEmail(emailAddress)
+                .addOnCompleteListener(task -> {
+                    progressDialog.dismiss();
+                    if (task.isSuccessful()) {
+                        Log.e(TAG, "Email sent.");
+                        Toast.makeText(this, "Email sent. Please check your email", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
