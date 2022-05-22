@@ -1,14 +1,24 @@
 package com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,17 +38,54 @@ import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.
 import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment.HomeFragment;
 import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment.MyProfileFragment;
 
+import java.io.IOException;
+
 public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private final String TAG = NavigationDrawerToolbarFragmentActivity.class.getSimpleName();
     DrawerLayout mDrawerLayout;
     private int FRAGMENT_HOME = 1;
     private int FRAGMENT_FAVORITE = 2;
     private int FRAGMENT_HISTORY = 3;
     private int FRAGMENT_MY_PROFILE = 4;
     private int FRAGMENT_CHANGE_ACCOUNT = 5;
-    private int FRAGMENT_LOGOUT = 6;
     private int mCurrentFragment = 1;
 
     private NavigationView mNavigationView;
+
+    private final MyProfileFragment mMyProfileFragment = new MyProfileFragment();
+
+    public ProgressDialog progressDialog;
+
+    public ActivityResultLauncher<String> mPermissionReadStorageResult = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(),
+            result -> {
+                if (result) {
+                    mMyProfileFragment.openGallery();
+                } else {
+                    Log.e(TAG, "onActivityResult: PERMISSION DENIED");
+                }
+            });
+
+    public ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Intent intent = result.getData();
+                if (intent == null) {
+                    return;
+                }
+
+                Uri uri = intent.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                    mMyProfileFragment.setBitmap(bitmap);
+                    mMyProfileFragment.setUriAvatar(uri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +119,9 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
         replaceFragment(R.id.fl_content, new HomeFragment());
         mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Waiting...");
+
         updateUI();
     }
 
@@ -98,7 +148,7 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
                 break;
             case R.id.nav_my_profile:
                 if (mCurrentFragment != FRAGMENT_MY_PROFILE) {
-                    replaceFragment(R.id.fl_content, new MyProfileFragment());
+                    replaceFragment(R.id.fl_content, mMyProfileFragment);
                     mCurrentFragment = FRAGMENT_MY_PROFILE;
                 }
                 break;
@@ -127,8 +177,8 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
         }
     }
 
-    private void updateUI() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    public void updateUI() {
+        FirebaseUser user = getUser();
         if (user != null) {
             ImageView ivProfile = mNavigationView.getHeaderView(0).findViewById(R.id.profile_image);
             TextView tvName = mNavigationView.getHeaderView(0).findViewById(R.id.tv_name);
@@ -142,5 +192,13 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
             }
             tvEmail.setText(user.getEmail());
         }
+    }
+
+    public void showProgress() {
+        progressDialog.show();
+    }
+
+    public void dismissProgress() {
+        progressDialog.dismiss();
     }
 }
