@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.NavigationDrawerToolbarFragmentActivity;
 
 public class EmailPasswordActivity extends AppCompatActivity {
     private final String TAG = EmailPasswordActivity.class.getSimpleName();
@@ -30,6 +33,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +104,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.e(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(EmailPasswordActivity.this, task.getException() + "", Toast.LENGTH_LONG).show();
                             updateUI(null);
                         }
                     }
@@ -133,13 +138,15 @@ public class EmailPasswordActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         updateUI(user);
     }
+
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            llLoginSuccess.setVisibility(View.VISIBLE);
+            /*llLoginSuccess.setVisibility(View.VISIBLE);
             llLogin.setVisibility(View.GONE);
             llRegister.setVisibility(View.GONE);
-            tvUserEmail.setText(user.getEmail());
-        } else  {
+            tvUserEmail.setText(user.getEmail());*/
+            gotoHomeScreen();
+        } else {
             llLogin.setVisibility(View.VISIBLE);
             llRegister.setVisibility(View.GONE);
             llLoginSuccess.setVisibility(View.GONE);
@@ -150,5 +157,10 @@ public class EmailPasswordActivity extends AppCompatActivity {
     private void startLogout() {
         FirebaseAuth.getInstance().signOut();
         updateUI(null);
+    }
+
+    private void gotoHomeScreen() {
+        AppUtils.gotoScreen(this, NavigationDrawerToolbarFragmentActivity.class);
+        finish();
     }
 }
