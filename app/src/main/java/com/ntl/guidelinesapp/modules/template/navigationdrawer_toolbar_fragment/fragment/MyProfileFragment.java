@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -20,12 +19,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseFragment;
+import com.ntl.guidelinesapp.core.IReAuthenticateListener;
 import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.NavigationDrawerToolbarFragmentActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -127,7 +125,7 @@ public class MyProfileFragment extends BaseFragment {
         });
 
         btUpdateEmail.setOnClickListener(v -> {
-            updateEmail();
+            doUpdateEmail();
         });
 
     }
@@ -184,7 +182,7 @@ public class MyProfileFragment extends BaseFragment {
         this.uriAvatar = uriAvatar;
     }
 
-    private void updateEmail() {
+    private void doUpdateEmail() {
         mActivity.showProgress();
         mUser.updateEmail(edtEmail.getText().toString().trim())
                 .addOnCompleteListener(task -> {
@@ -195,7 +193,14 @@ public class MyProfileFragment extends BaseFragment {
                         mActivity.updateUI();
                     } else {
                         Log.e(TAG, "User profile update fail: ");
+                        reAuthenticateUser(mActivity, new IReAuthenticateListener() {
+                            @Override
+                            public void onComplete() {
+                                doUpdateEmail();
+                            }
+                        });
                     }
                 });
     }
+
 }

@@ -26,6 +26,7 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseUser;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseFragment;
+import com.ntl.guidelinesapp.core.IReAuthenticateListener;
 import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.NavigationDrawerToolbarFragmentActivity;
 
 /**
@@ -43,7 +44,7 @@ public class ChangePasswordFragment extends BaseFragment {
     private String mParam1;
     private String mParam2;
 
-    private NavigationDrawerToolbarFragmentActivity activity;
+    private NavigationDrawerToolbarFragmentActivity mActivity;
 
     private View mView;
     private FirebaseUser mUser;
@@ -83,7 +84,7 @@ public class ChangePasswordFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        activity = (NavigationDrawerToolbarFragmentActivity) getActivity();
+        mActivity = (NavigationDrawerToolbarFragmentActivity) getActivity();
         mUser = getUser();
         mView = inflater.inflate(R.layout.fragment_change_password, container, false);
 
@@ -96,65 +97,21 @@ public class ChangePasswordFragment extends BaseFragment {
     }
 
     private void doUpdatePassword() {
-        activity.showProgress();
+        mActivity.showProgress();
         mUser.updatePassword(edtNewPassword.getText().toString().trim())
                 .addOnCompleteListener(task -> {
-                    activity.dismissProgress();
+                    mActivity.dismissProgress();
                     if (task.isSuccessful()) {
                         Log.e(TAG, "User password updated.");
-                        Toast.makeText(activity, "User password updated.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mActivity, "User password updated.", Toast.LENGTH_LONG).show();
                     } else {
-                        reAuthenticateUser();
+                        reAuthenticateUser(mActivity, new IReAuthenticateListener() {
+                            @Override
+                            public void onComplete() {
+                                doUpdatePassword();
+                            }
+                        });
                     }
                 });
-    }
-
-    private void reAuthenticateUser() {
-        Dialog dialog = new Dialog(activity);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.layout_dialog_re_authenticate_password);
-
-        Window window = dialog.getWindow();
-        if (window == null) {
-            return;
-        }
-
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        WindowManager.LayoutParams layoutParams = window.getAttributes();
-        layoutParams.gravity = Gravity.CENTER;
-
-        window.setAttributes(layoutParams);
-
-        dialog.setCancelable(false);
-
-        String strEmail = ((EditText) dialog.findViewById(R.id.edt_email)).getText().toString();
-        String strPassword = ((EditText) dialog.findViewById(R.id.edt_password)).getText().toString();
-        Button btnNo = dialog.findViewById(R.id.bt_no);
-        Button btnConfirm = dialog.findViewById(R.id.bt_confirm);
-
-        btnNo.setOnClickListener(v -> dialog.dismiss());
-
-        btnConfirm.setOnClickListener(v -> {
-            activity.showProgress();
-            AuthCredential credential = EmailAuthProvider
-                    .getCredential(strEmail, strPassword);
-
-            // Prompt the user to re-provide their sign-in credentials
-            mUser.reauthenticate(credential)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                doUpdatePassword();
-                            } else {
-                                activity.dismissProgress();
-                                Toast.makeText(activity, "Email or Password wrong", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-        });
-        dialog.show();
     }
 }
