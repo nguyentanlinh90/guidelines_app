@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.ntl.guidelinesapp.core.BaseActivity;
@@ -54,6 +55,10 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
         toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.navigation_view);
+
+        ImageView ivProfile = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
+        ivProfile.setImageResource(R.drawable.dog_image);
+
         navigationView.setNavigationItemSelectedListener(this);
 
         replaceFragment(R.id.fl_content, new HomeFragment());
