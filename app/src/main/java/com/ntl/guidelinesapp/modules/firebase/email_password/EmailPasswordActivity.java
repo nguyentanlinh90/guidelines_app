@@ -3,6 +3,7 @@ package com.ntl.guidelinesapp.modules.firebase.email_password;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
     private TextView tvUserEmail, tvRegister, tvLogin;
     private Button btLogin, btLogout, btRegister;
 
+    private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class EmailPasswordActivity extends AppCompatActivity {
         AppUtils.setTitleBar(this, EmailPasswordActivity.class.getSimpleName());
 
         mAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Waiting...");
 
         llLogin = findViewById(R.id.ll_login);
         llLoginSuccess = findViewById(R.id.ll_login_success);
@@ -81,6 +85,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
     }
 
     private void startLogin() {
+        progressDialog.show();
         String email = edtLoginEmail.getText().toString().trim();
         String password = edtLoginPassword.getText().toString().trim();
         mAuth.signInWithEmailAndPassword(email, password)
@@ -102,6 +107,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
     }
 
     private void startRegister() {
+        progressDialog.show();
         String email = edtRegisterEmail.getText().toString().trim();
         String password = edtRegisterPassword.getText().toString().trim();
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -123,6 +129,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
     }
 
     private void checkLogin() {
+        progressDialog.show();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         updateUI(user);
     }
@@ -137,6 +144,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
             llRegister.setVisibility(View.GONE);
             llLoginSuccess.setVisibility(View.GONE);
         }
+        progressDialog.dismiss();
     }
 
     private void startLogout() {
