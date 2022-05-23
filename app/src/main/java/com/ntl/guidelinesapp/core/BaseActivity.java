@@ -22,4 +22,5 @@ public class BaseActivity extends AppCompatActivity {
     public String getTag(Class<?> cls) {
         return cls.getSimpleName();
     }
+
 }

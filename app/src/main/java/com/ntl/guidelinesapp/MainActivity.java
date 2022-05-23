@@ -19,6 +19,7 @@ import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.filter_recyclerview.FilterRecyclerViewActivity;
 import com.ntl.guidelinesapp.modules.firebase.FirebaseActivity;
 import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivity;
+import com.ntl.guidelinesapp.modules.list.ListActivity;
 import com.ntl.guidelinesapp.modules.mvp.MVPActivity;
 import com.ntl.guidelinesapp.modules.mvvm.MVVMActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(13, getResources().getString(R.string.mvvm)));
         buttons.add(0, new ButtonModel(14, getResources().getString(R.string.firebase)));
         buttons.add(0, new ButtonModel(15, getResources().getString(R.string.template)));
+        buttons.add(0, new ButtonModel(16, getResources().getString(R.string.list)));
 
         return buttons;
     }
@@ -136,6 +138,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 15:
                 gotoScreen(TemplateActivity.class);
+                break;
+            case 16:
+                gotoScreen(ListActivity.class);
                 break;
         }
     }

@@ -17,9 +17,17 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.list.type.GridActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.list.ListActivity"/>
+        <activity
+            android:name=".modules.list.ListActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".modules.firebase.realtime_db.RealTimeDBActivity"
             android:exported="false"
-            android:parentActivityName=".modules.firebase.FirebaseActivity"/>
+            android:parentActivityName=".modules.firebase.FirebaseActivity" />
         <activity
             android:name=".modules.firebase.email_password.EmailPasswordActivity"
             android:exported="false"
