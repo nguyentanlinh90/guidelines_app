@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
+import com.ntl.guidelinesapp.modules.list.TranslateAnimationUtil;
 import com.ntl.guidelinesapp.modules.list.model.User;
 import com.ntl.guidelinesapp.modules.list.adapter.UserLinearAdapter;
 
@@ -21,6 +24,8 @@ public class LinearVerticalActivity extends BaseActivity {
     private RecyclerView rcvUsers;
     private UserLinearAdapter adapter;
     private List<User> mList;
+    private FloatingActionButton fabMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +49,8 @@ public class LinearVerticalActivity extends BaseActivity {
                 new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
                     @Override
                     public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder dragged, @NonNull RecyclerView.ViewHolder target) {
-                       int posDragged = dragged.getAdapterPosition();
-                       int posTarget = target.getAdapterPosition();
+                        int posDragged = dragged.getAdapterPosition();
+                        int posTarget = target.getAdapterPosition();
                         Collections.swap(mList, posDragged, posTarget);
                         adapter.notifyItemMoved(posDragged, posTarget);
                         return false;
@@ -57,5 +62,20 @@ public class LinearVerticalActivity extends BaseActivity {
                     }
                 });
         helper.attachToRecyclerView(rcvUsers);
+
+        fabMenu = findViewById(R.id.fab_menu);
+        rcvUsers.setOnTouchListener(new TranslateAnimationUtil(this, fabMenu));
+
+        /*rcvUsers.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    fabMenu.setVisibility(View.GONE);
+                } else {
+                    fabMenu.setVisibility(View.VISIBLE);
+                }
+            }
+        });*/
     }
 }
