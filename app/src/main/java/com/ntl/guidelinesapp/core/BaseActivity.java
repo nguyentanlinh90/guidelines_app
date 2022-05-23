@@ -8,6 +8,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.modules.list.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -31,4 +36,11 @@ public class BaseActivity extends AppCompatActivity {
         return displayMetrics.widthPixels;
     }
 
+    public List<User> getListUser() {
+        List<User> userList = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            userList.add(new User(R.drawable.dog_image, "User: " + i));
+        }
+        return userList;
+    }
 }

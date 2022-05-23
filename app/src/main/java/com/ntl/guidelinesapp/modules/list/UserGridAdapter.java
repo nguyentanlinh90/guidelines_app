@@ -40,6 +40,12 @@ public class UserGridAdapter extends RecyclerView.Adapter<UserGridAdapter.UserVi
         User user = mList.get(position);
         if (user != null) {
             holder.ivAvatar.setImageResource(user.getImgResource());
+            //use for StaggeredGridActivity
+            if (position % 2 == 0) {
+                holder.ivAvatar.getLayoutParams().height = widthScreen;
+            } else {
+                holder.ivAvatar.getLayoutParams().height = widthScreen / 3;
+            }
             holder.tvName.setText(user.getName());
         }
     }
@@ -59,7 +65,8 @@ public class UserGridAdapter extends RecyclerView.Adapter<UserGridAdapter.UserVi
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             ivAvatar = itemView.findViewById(R.id.iv_avatar);
-            ivAvatar.getLayoutParams().height = widthScreen;
+            //todo will comment bellow code when open StaggeredGridActivity
+//            ivAvatar.getLayoutParams().height = widthScreen;
             ivAvatar.getLayoutParams().width = widthScreen;
             tvName = itemView.findViewById(R.id.tv_name);
         }

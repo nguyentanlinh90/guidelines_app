@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.modules.list.User;
 import com.ntl.guidelinesapp.modules.list.UserGridAdapter;
 import com.ntl.guidelinesapp.modules.list.UserLinearAdapter;
@@ -15,7 +16,7 @@ import com.ntl.guidelinesapp.modules.list.UserLinearAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinearVerticalActivity extends AppCompatActivity {
+public class LinearVerticalActivity extends BaseActivity {
     private RecyclerView rcvUsers;
     private UserLinearAdapter adapter;
 
@@ -33,13 +34,5 @@ public class LinearVerticalActivity extends AppCompatActivity {
         adapter.setData(getListUser());
 
         rcvUsers.setAdapter(adapter);
-    }
-
-    private List<User> getListUser() {
-        List<User> userList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            userList.add(new User(R.drawable.dog_image, "User: " + i));
-        }
-        return userList;
     }
 }

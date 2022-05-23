@@ -28,4 +28,11 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Linear Horizontal List" />
+
+    <Button
+        android:id="@+id/bt_staggered_grid_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Staggered Grid List" />
 </LinearLayout>
