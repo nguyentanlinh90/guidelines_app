@@ -18,4 +18,8 @@ public class BaseActivity extends AppCompatActivity {
     public FirebaseUser getUser() {
         return FirebaseAuth.getInstance().getCurrentUser();
     }
+
+    public String getTag(Class<?> cls) {
+        return cls.getSimpleName();
+    }
 }

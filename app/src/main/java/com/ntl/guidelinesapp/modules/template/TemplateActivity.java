@@ -18,7 +18,7 @@ public class TemplateActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_template);
 
-        AppUtils.setTitleBar(this, TemplateActivity.class.getSimpleName());
+        AppUtils.setTitleBar(this, TemplateActivity.class);
 
         findViewById(R.id.bt_navigationdrawer_toolbar_fragment).setOnClickListener(v -> {
             if (getUser() != null) {

@@ -40,7 +40,7 @@ public class VerifyPhoneNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_phone_number);
 
-        AppUtils.setTitleBar(this, VerifyPhoneNumberActivity.class.getSimpleName());
+        AppUtils.setTitleBar(this, VerifyPhoneNumberActivity.class);
 
         mAuth = FirebaseAuth.getInstance();
         llInputPhone = findViewById(R.id.ll_input_phone);

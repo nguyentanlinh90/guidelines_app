@@ -58,15 +58,20 @@ public class AppUtils {
         }
     }
 
-    public static void setTitleBar(AppCompatActivity context, String title) {
+    public static void setTitleBar(AppCompatActivity context, Class<?> cls) {
         if (context.getSupportActionBar() != null) {
-            context.getSupportActionBar().setTitle(title);
+            context.getSupportActionBar().setTitle(cls.getSimpleName());
         }
     }
+
 
     public static void gotoScreen(Context context, Class<?> cls) {
         Intent intent = new Intent(context, cls);
         context.startActivity(intent);
+    }
+
+    public static String getTag(Class<?> cls) {
+        return cls.getSimpleName();
     }
 
 }

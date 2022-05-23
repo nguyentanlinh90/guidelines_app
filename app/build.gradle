@@ -62,6 +62,7 @@ dependencies {
     //fcm, don't need add version, version will follow sdk version
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
     //analytics
     implementation 'com.google.firebase:firebase-analytics'
 

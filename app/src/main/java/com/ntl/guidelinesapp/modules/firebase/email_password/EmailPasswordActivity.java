@@ -38,7 +38,7 @@ public class EmailPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_password);
-        AppUtils.setTitleBar(this, EmailPasswordActivity.class.getSimpleName());
+        AppUtils.setTitleBar(this, EmailPasswordActivity.class);
 
         mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
