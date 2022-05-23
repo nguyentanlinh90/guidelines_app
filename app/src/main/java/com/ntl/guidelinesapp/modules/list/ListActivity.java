@@ -11,6 +11,7 @@ import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.modules.list.type.GridActivity;
+import com.ntl.guidelinesapp.modules.list.type.InstagramActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearHorizontalActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearVerticalActivity;
 import com.ntl.guidelinesapp.modules.list.type.MultipleViewActivity;
@@ -53,5 +54,10 @@ public class ListActivity extends BaseActivity {
         findViewById(R.id.bt_sticky_headers_expand_collapse_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, StickyHeadersExpandCollapseActivity.class);
         });
+
+        findViewById(R.id.bt_instagram_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, InstagramActivity.class);
+        });
+
     }
 }

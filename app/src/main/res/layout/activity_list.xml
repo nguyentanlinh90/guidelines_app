@@ -56,4 +56,11 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Sticky Headers Expand/Collapse List" />
+
+    <Button
+        android:id="@+id/bt_instagram_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Instagram List" />
 </LinearLayout>
