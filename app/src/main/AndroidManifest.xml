@@ -17,9 +17,13 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.list.type.StaggeredGridActivity"
+            android:name=".modules.list.type.MultipleViewActivity"
             android:exported="false"
             android:parentActivityName=".modules.list.ListActivity"/>
+        <activity
+            android:name=".modules.list.type.StaggeredGridActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.list.ListActivity" />
         <activity
             android:name=".modules.list.type.LinearHorizontalActivity"
             android:exported="false"
