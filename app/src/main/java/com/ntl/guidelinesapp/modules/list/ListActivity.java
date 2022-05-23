@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
+import com.ntl.guidelinesapp.modules.list.type.ExpandableListViewActivity;
 import com.ntl.guidelinesapp.modules.list.type.GridActivity;
 import com.ntl.guidelinesapp.modules.list.type.InstagramActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearHorizontalActivity;
@@ -57,6 +58,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_instagram_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, InstagramActivity.class);
+        });
+
+        findViewById(R.id.bt_expandable_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, ExpandableListViewActivity.class);
         });
 
     }

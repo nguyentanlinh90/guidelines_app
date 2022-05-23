@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@android:color/holo_orange_light"
+    tools:context=".modules.list.type.GridActivity">
+
+    <ExpandableListView
+        android:id="@+id/el_users"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/red"
+        android:scrollbars="none"
+        android:dividerHeight="1dp"/>
+
+</RelativeLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,59 +8,72 @@
     android:padding="16dp"
     tools:context=".modules.list.ListActivity">
 
-    <Button
-        android:id="@+id/bt_grid_list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Grid List" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt_linear_vertical_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Linear Vertical List" />
+        <Button
+            android:id="@+id/bt_grid_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Grid List" />
 
-    <Button
-        android:id="@+id/bt_linear_horizontal_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Linear Horizontal List" />
+        <Button
+            android:id="@+id/bt_linear_vertical_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Linear Vertical List" />
 
-    <Button
-        android:id="@+id/bt_staggered_grid_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Staggered Grid List" />
+        <Button
+            android:id="@+id/bt_linear_horizontal_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Linear Horizontal List" />
 
-    <Button
-        android:id="@+id/bt_multiple_view_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Multiple View List" />
+        <Button
+            android:id="@+id/bt_staggered_grid_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Staggered Grid List" />
 
-    <Button
-        android:id="@+id/bt_sticky_headers_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Sticky Headers List" />
+        <Button
+            android:id="@+id/bt_multiple_view_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Multiple View List" />
 
-    <Button
-        android:id="@+id/bt_sticky_headers_expand_collapse_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Sticky Headers Expand/Collapse List" />
+        <Button
+            android:id="@+id/bt_sticky_headers_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Sticky Headers List" />
 
-    <Button
-        android:id="@+id/bt_instagram_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="Instagram List" />
-</LinearLayout>
+        <Button
+            android:id="@+id/bt_sticky_headers_expand_collapse_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Sticky Headers Expand/Collapse List" />
+
+        <Button
+            android:id="@+id/bt_instagram_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Instagram List" />
+
+        <Button
+            android:id="@+id/bt_expandable_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Expandable List" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
