@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.list.User;
+import com.ntl.guidelinesapp.modules.list.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

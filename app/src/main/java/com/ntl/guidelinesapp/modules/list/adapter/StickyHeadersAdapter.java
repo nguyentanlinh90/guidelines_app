@@ -1,6 +1,5 @@
 package com.ntl.guidelinesapp.modules.list.adapter;
 
-import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.list.User;
+import com.ntl.guidelinesapp.modules.list.model.User;
 
 import java.util.List;
 

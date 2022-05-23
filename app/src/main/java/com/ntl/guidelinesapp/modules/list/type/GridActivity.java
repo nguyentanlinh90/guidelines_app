@@ -1,20 +1,14 @@
 package com.ntl.guidelinesapp.modules.list.type;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
-import com.ntl.guidelinesapp.modules.list.User;
-import com.ntl.guidelinesapp.modules.list.UserGridAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.ntl.guidelinesapp.modules.list.adapter.UserGridAdapter;
 
 public class GridActivity extends BaseActivity {
     private RecyclerView rcvUsers;

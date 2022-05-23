@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.list;
+package com.ntl.guidelinesapp.modules.list.model;
 
 public class User {
     private int imgResource;

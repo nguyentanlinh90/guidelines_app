@@ -1,6 +1,5 @@
 package com.ntl.guidelinesapp.modules.list.type;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,10 +8,9 @@ import android.os.Bundle;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
-import com.ntl.guidelinesapp.modules.list.TypeUser;
-import com.ntl.guidelinesapp.modules.list.TypeUserAdapter;
-import com.ntl.guidelinesapp.modules.list.User;
-import com.ntl.guidelinesapp.modules.list.UserLinearAdapter;
+import com.ntl.guidelinesapp.modules.list.model.TypeUser;
+import com.ntl.guidelinesapp.modules.list.adapter.TypeUserAdapter;
+import com.ntl.guidelinesapp.modules.list.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

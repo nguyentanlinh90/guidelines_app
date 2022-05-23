@@ -1,7 +1,6 @@
 package com.ntl.guidelinesapp.modules.list.type;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,12 +11,9 @@ import android.os.Bundle;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
-import com.ntl.guidelinesapp.modules.list.User;
-import com.ntl.guidelinesapp.modules.list.UserGridAdapter;
-import com.ntl.guidelinesapp.modules.list.UserLinearAdapter;
+import com.ntl.guidelinesapp.modules.list.model.User;
+import com.ntl.guidelinesapp.modules.list.adapter.UserLinearAdapter;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

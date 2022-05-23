@@ -1,7 +1,5 @@
 package com.ntl.guidelinesapp.modules.list.type;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -10,7 +8,7 @@ import android.os.Bundle;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
-import com.ntl.guidelinesapp.modules.list.UserGridAdapter;
+import com.ntl.guidelinesapp.modules.list.adapter.UserGridAdapter;
 
 public class StaggeredGridActivity extends BaseActivity {
     private RecyclerView rcvUsers;

@@ -1,11 +1,10 @@
-package com.ntl.guidelinesapp.modules.list;
+package com.ntl.guidelinesapp.modules.list.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.modules.list.model.TypeUser;
 
 import java.util.List;
 

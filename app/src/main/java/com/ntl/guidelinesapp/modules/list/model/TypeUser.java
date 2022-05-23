@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.list;
+package com.ntl.guidelinesapp.modules.list.model;
 
 import java.util.List;
 

@@ -1,19 +1,17 @@
 package com.ntl.guidelinesapp.modules.list.type;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.list.User;
+import com.ntl.guidelinesapp.modules.list.model.User;
 import com.ntl.guidelinesapp.modules.list.adapter.StickyHeadersAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class StickyHeadersActivity extends AppCompatActivity {

@@ -8,9 +8,8 @@ import android.os.Bundle;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.list.User;
-import com.ntl.guidelinesapp.modules.list.UserLinearAdapter;
-import com.ntl.guidelinesapp.modules.list.UserMultipleViewAdapter;
+import com.ntl.guidelinesapp.modules.list.model.User;
+import com.ntl.guidelinesapp.modules.list.adapter.UserMultipleViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
