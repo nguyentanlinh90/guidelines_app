@@ -42,4 +42,11 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Multiple View List" />
+
+    <Button
+        android:id="@+id/bt_sticky_headers_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Sticky Headers List" />
 </LinearLayout>

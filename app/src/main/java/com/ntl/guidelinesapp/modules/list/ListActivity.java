@@ -15,6 +15,7 @@ import com.ntl.guidelinesapp.modules.list.type.LinearHorizontalActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearVerticalActivity;
 import com.ntl.guidelinesapp.modules.list.type.MultipleViewActivity;
 import com.ntl.guidelinesapp.modules.list.type.StaggeredGridActivity;
+import com.ntl.guidelinesapp.modules.list.type.StickyHeadersActivity;
 
 public class ListActivity extends BaseActivity {
 
@@ -42,6 +43,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_multiple_view_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, MultipleViewActivity.class);
+        });
+
+        findViewById(R.id.bt_sticky_headers_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, StickyHeadersActivity.class);
         });
     }
 }
