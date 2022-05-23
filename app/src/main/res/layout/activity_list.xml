@@ -49,4 +49,11 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Sticky Headers List" />
+
+    <Button
+        android:id="@+id/bt_sticky_headers_expand_collapse_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Sticky Headers Expand/Collapse List" />
 </LinearLayout>
