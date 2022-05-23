@@ -11,6 +11,7 @@ import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.modules.list.type.GridActivity;
+import com.ntl.guidelinesapp.modules.list.type.LinearVerticalActivity;
 
 public class ListActivity extends BaseActivity {
 
@@ -24,7 +25,8 @@ public class ListActivity extends BaseActivity {
             AppUtils.gotoScreen(this, GridActivity.class);
         });
 
-        LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        GridLayoutManager manager1 = new GridLayoutManager(this, 3);
+        findViewById(R.id.bt_linear_vertical_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, LinearVerticalActivity.class);
+        });
     }
 }
