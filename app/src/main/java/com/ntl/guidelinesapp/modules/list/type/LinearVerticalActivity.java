@@ -1,6 +1,9 @@
 package com.ntl.guidelinesapp.modules.list.type;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,12 +17,14 @@ import com.ntl.guidelinesapp.modules.list.UserGridAdapter;
 import com.ntl.guidelinesapp.modules.list.UserLinearAdapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class LinearVerticalActivity extends BaseActivity {
     private RecyclerView rcvUsers;
     private UserLinearAdapter adapter;
-
+    private List<User> mList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +36,30 @@ public class LinearVerticalActivity extends BaseActivity {
         rcvUsers.setLayoutManager(manager);
 
         adapter = new UserLinearAdapter();
-        adapter.setData(getListUser());
+        mList = getListUser();
+        adapter.setData(mList);
 
         rcvUsers.setAdapter(adapter);
+
+        RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        rcvUsers.addItemDecoration(decoration);
+
+        ItemTouchHelper helper = new ItemTouchHelper(
+                new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
+                    @Override
+                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder dragged, @NonNull RecyclerView.ViewHolder target) {
+                       int posDragged = dragged.getAdapterPosition();
+                       int posTarget = target.getAdapterPosition();
+                        Collections.swap(mList, posDragged, posTarget);
+                        adapter.notifyItemMoved(posDragged, posTarget);
+                        return false;
+                    }
+
+                    @Override
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                    }
+                });
+        helper.attachToRecyclerView(rcvUsers);
     }
 }
