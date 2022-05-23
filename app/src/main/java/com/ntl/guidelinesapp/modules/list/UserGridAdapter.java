@@ -60,6 +60,7 @@ public class UserGridAdapter extends RecyclerView.Adapter<UserGridAdapter.UserVi
             super(itemView);
             ivAvatar = itemView.findViewById(R.id.iv_avatar);
             ivAvatar.getLayoutParams().height = widthScreen;
+            ivAvatar.getLayoutParams().width = widthScreen;
             tvName = itemView.findViewById(R.id.tv_name);
         }
     }

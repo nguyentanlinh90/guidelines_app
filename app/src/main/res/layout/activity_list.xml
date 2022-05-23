@@ -14,10 +14,18 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Grid List" />
+
     <Button
         android:id="@+id/bt_linear_vertical_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Linear Vertical List" />
+
+    <Button
+        android:id="@+id/bt_linear_horizontal_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Linear Horizontal List" />
 </LinearLayout>

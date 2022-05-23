@@ -1,5 +1,7 @@
 package com.ntl.guidelinesapp.core;
 
+import android.util.DisplayMetrics;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,6 +23,12 @@ public class BaseActivity extends AppCompatActivity {
 
     public String getTag(Class<?> cls) {
         return cls.getSimpleName();
+    }
+
+    public int getWidthScreen() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
     }
 
 }

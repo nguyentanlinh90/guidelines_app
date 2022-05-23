@@ -11,6 +11,7 @@ import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.modules.list.type.GridActivity;
+import com.ntl.guidelinesapp.modules.list.type.LinearHorizontalActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearVerticalActivity;
 
 public class ListActivity extends BaseActivity {
@@ -27,6 +28,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_linear_vertical_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, LinearVerticalActivity.class);
+        });
+
+        findViewById(R.id.bt_linear_horizontal_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, LinearHorizontalActivity.class);
         });
     }
 }

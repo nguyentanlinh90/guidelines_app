@@ -9,13 +9,14 @@ import android.util.DisplayMetrics;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.modules.list.User;
 import com.ntl.guidelinesapp.modules.list.UserGridAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GridActivity extends AppCompatActivity {
+public class GridActivity extends BaseActivity {
     private RecyclerView rcvUsers;
     private UserGridAdapter adapter;
 
@@ -41,11 +42,5 @@ public class GridActivity extends AppCompatActivity {
             userList.add(new User(R.drawable.dog_image, "User: " + i));
         }
         return userList;
-    }
-
-    public int getWidthScreen() {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        return displayMetrics.widthPixels;
     }
 }
