@@ -17,6 +17,10 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.list.type.ChatActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.list.ListActivity" />
+        <activity
             android:name=".modules.list.type.RCVInsideRCVActivity"
             android:exported="false"
             android:parentActivityName=".modules.list.ListActivity" />

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
+import com.ntl.guidelinesapp.modules.list.type.ChatActivity;
 import com.ntl.guidelinesapp.modules.list.type.ExpandCollapseFoldingCellAnimationActivity;
 import com.ntl.guidelinesapp.modules.list.type.ExpandableListViewActivity;
 import com.ntl.guidelinesapp.modules.list.type.GridActivity;
@@ -77,6 +78,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_rcv_inside_rcv_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, RCVInsideRCVActivity.class);
+        });
+
+        findViewById(R.id.bt_chat_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, ChatActivity.class);
         });
 
     }
