@@ -11,10 +11,6 @@ import com.ntl.guidelinesapp.general.fragment.AccountFragment;
 import com.ntl.guidelinesapp.general.fragment.FavoriteFragment;
 import com.ntl.guidelinesapp.general.fragment.HistoryFragment;
 import com.ntl.guidelinesapp.general.fragment.HomeFragment;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab1;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab2;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab3;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab4;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 

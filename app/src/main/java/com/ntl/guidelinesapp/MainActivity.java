@@ -18,6 +18,7 @@ import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivit
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.filter_recyclerview.FilterRecyclerViewActivity;
 import com.ntl.guidelinesapp.modules.firebase.FirebaseActivity;
+import com.ntl.guidelinesapp.modules.image_slider.ImageSliderActivity;
 import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivity;
 import com.ntl.guidelinesapp.modules.list.ListActivity;
 import com.ntl.guidelinesapp.modules.mvp.MVPActivity;
@@ -35,6 +36,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ButtonAdapter.IClickButton {
     private static String TAG = MainActivity.class.getName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(14, getResources().getString(R.string.firebase)));
         buttons.add(0, new ButtonModel(15, getResources().getString(R.string.template)));
         buttons.add(0, new ButtonModel(16, getResources().getString(R.string.list)));
+        buttons.add(0, new ButtonModel(17, getResources().getString(R.string.image_slider)));
 
         return buttons;
     }
@@ -141,6 +144,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 16:
                 gotoScreen(ListActivity.class);
+                break;
+            case 17:
+                gotoScreen(ImageSliderActivity.class);
                 break;
         }
     }

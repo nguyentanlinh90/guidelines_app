@@ -71,5 +71,6 @@ dependencies {
     implementation 'se.emilsjolander:stickylistheaders:2.7.0'
     implementation 'com.ramotion.foldingcell:folding-cell:1.2.3'
 
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'me.relex:circleindicator:2.1.6'
 }
