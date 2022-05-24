@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -26,12 +27,16 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.firebase.email_password.EmailPasswordActivity;
+import com.ntl.guidelinesapp.modules.template.bottom_viewpager2_fragments.DepthPageTransformer;
+import com.ntl.guidelinesapp.modules.template.bottom_viewpager2_fragments.ZoomOutPageTransformer;
 import com.ntl.guidelinesapp.modules.template.fragment.ChangePasswordFragment;
 import com.ntl.guidelinesapp.modules.template.fragment.FavoriteFragment;
 import com.ntl.guidelinesapp.modules.template.fragment.HistoryFragment;
@@ -55,6 +60,10 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
     private final MyProfileFragment mMyProfileFragment = new MyProfileFragment();
 
     public ProgressDialog progressDialog;
+
+    private TabLayout tlMain;
+    private ViewPager2 vp2Main;
+    private MyViewPager2Adapter adapter;
 
     public ActivityResultLauncher<String> mPermissionReadStorageResult = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
@@ -95,6 +104,26 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        tlMain = findViewById(R.id.tl_main);
+        vp2Main = findViewById(R.id.vp2_main);
+        vp2Main.setPageTransformer(new DepthPageTransformer());
+        adapter = new MyViewPager2Adapter(this);
+        vp2Main.setAdapter(adapter);
+
+        new TabLayoutMediator(tlMain, vp2Main, (tab, position) -> {
+            switch (position) {
+                case 1:
+                    tab.setText("Favorite");
+                    break;
+                case 2:
+                    tab.setText("History");
+                    break;
+                default:
+                    tab.setText("Home");
+                    break;
+            }
+        }).attach();
+
         //change color title toolbar
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
@@ -116,13 +145,34 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
 
         mNavigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(R.id.fl_content, new HomeFragment());
+//        replaceFragment(R.id.fl_content, new HomeFragment());
         mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Waiting...");
 
         updateUI();
+
+        vp2Main.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                switch (position) {
+                    case 1:
+                        mCurrentFragment = FRAGMENT_FAVORITE;
+                        mNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
+                        break;
+                    case 2:
+                        mCurrentFragment = FRAGMENT_HISTORY;
+                        mNavigationView.getMenu().findItem(R.id.nav_history).setChecked(true);
+                        break;
+                    default:
+                        mCurrentFragment = FRAGMENT_HOME;
+                        mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -130,31 +180,34 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
         switch (item.getItemId()) {
             case R.id.nav_home:
                 if (mCurrentFragment != FRAGMENT_HOME) {
-                    replaceFragment(R.id.fl_content, new HomeFragment());
+//                    replaceFragment(R.id.fl_content, new HomeFragment());
+                    vp2Main.setCurrentItem(0);
                     mCurrentFragment = FRAGMENT_HOME;
                 }
                 break;
             case R.id.nav_favorite:
                 if (mCurrentFragment != FRAGMENT_FAVORITE) {
-                    replaceFragment(R.id.fl_content, new FavoriteFragment());
+//                    replaceFragment(R.id.fl_content, new FavoriteFragment());
+                    vp2Main.setCurrentItem(1);
                     mCurrentFragment = FRAGMENT_FAVORITE;
                 }
                 break;
             case R.id.nav_history:
                 if (mCurrentFragment != FRAGMENT_HISTORY) {
-                    replaceFragment(R.id.fl_content, new HistoryFragment());
+//                    replaceFragment(R.id.fl_content, new HistoryFragment());
+                    vp2Main.setCurrentItem(2);
                     mCurrentFragment = FRAGMENT_HISTORY;
                 }
                 break;
             case R.id.nav_my_profile:
                 if (mCurrentFragment != FRAGMENT_MY_PROFILE) {
-                    replaceFragment(R.id.fl_content, mMyProfileFragment);
+//                    replaceFragment(R.id.fl_content, mMyProfileFragment);
                     mCurrentFragment = FRAGMENT_MY_PROFILE;
                 }
                 break;
             case R.id.nav_change_password:
                 if (mCurrentFragment != FRAGMENT_CHANGE_ACCOUNT) {
-                    replaceFragment(R.id.fl_content, new ChangePasswordFragment());
+//                    replaceFragment(R.id.fl_content, new ChangePasswordFragment());
                     mCurrentFragment = FRAGMENT_CHANGE_ACCOUNT;
                 }
                 break;
