@@ -15,8 +15,11 @@ public abstract class PaginationScrollListener extends RecyclerView.OnScrollList
     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
 
+        //count of item display on screen
         int visibleItemCount = linearLayoutManager.getChildCount();
+        //count of item on 1 page
         int totalItemCount = linearLayoutManager.getItemCount();
+        //item display on top recyclerview
         int firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
 
         if (isLoading() || isLastPage()) {

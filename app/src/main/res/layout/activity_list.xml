@@ -82,5 +82,12 @@
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:text="Expand Collapse Folding Cell Animation" />
+
+        <Button
+            android:id="@+id/bt_load_more_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Load More" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

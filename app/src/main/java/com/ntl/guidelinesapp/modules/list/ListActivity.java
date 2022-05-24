@@ -16,6 +16,7 @@ import com.ntl.guidelinesapp.modules.list.type.GridActivity;
 import com.ntl.guidelinesapp.modules.list.type.InstagramActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearHorizontalActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearVerticalActivity;
+import com.ntl.guidelinesapp.modules.list.type.LoadMoreActivity;
 import com.ntl.guidelinesapp.modules.list.type.MultipleViewActivity;
 import com.ntl.guidelinesapp.modules.list.type.StaggeredGridActivity;
 import com.ntl.guidelinesapp.modules.list.type.StickyHeadersActivity;
@@ -67,6 +68,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_expand_collapse_folding_cell_animation_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, ExpandCollapseFoldingCellAnimationActivity.class);
+        });
+
+        findViewById(R.id.bt_load_more_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, LoadMoreActivity.class);
         });
 
     }
