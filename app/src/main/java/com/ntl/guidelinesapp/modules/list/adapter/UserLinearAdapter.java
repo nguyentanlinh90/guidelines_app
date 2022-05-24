@@ -39,7 +39,7 @@ public class UserLinearAdapter extends RecyclerView.Adapter<UserLinearAdapter.Us
         User user = mList.get(position);
         if (user != null) {
             holder.ivAvatar.setImageResource(user.getImgResource());
-            holder.tvName.setText(user.getName());
+            holder.tvName.setText(user.getName() + " => " + (position + 1));
         }
     }
 

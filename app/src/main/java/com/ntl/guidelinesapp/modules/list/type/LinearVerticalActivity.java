@@ -7,13 +7,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.modules.list.TranslateAnimationUtil;
+import com.ntl.guidelinesapp.modules.list.listener.PaginationScrollListener;
 import com.ntl.guidelinesapp.modules.list.model.User;
 import com.ntl.guidelinesapp.modules.list.adapter.UserLinearAdapter;
 
@@ -26,18 +30,28 @@ public class LinearVerticalActivity extends BaseActivity {
     private List<User> mList;
     private FloatingActionButton fabMenu;
 
+    private LinearLayoutManager manager;
+    private boolean isLoading;
+    private boolean isLastPage;
+    private int currentPage = 1;
+    private int lastPage = 5;
+
+    private ProgressBar pbLoading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_vertical);
         AppUtils.setTitleBar(this, LinearVerticalActivity.class);
 
+        pbLoading = findViewById(R.id.pb_loading);
+
         rcvUsers = findViewById(R.id.rcv_users);
-        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rcvUsers.setLayoutManager(manager);
 
         adapter = new UserLinearAdapter();
-        mList = getListUser();
+        mList = getListData();
         adapter.setData(mList);
 
         rcvUsers.setAdapter(adapter);
@@ -79,6 +93,13 @@ public class LinearVerticalActivity extends BaseActivity {
         });*/
 
         handleDeleteItemWhenTouch();
+
+        handleLoadMorePage();
+    }
+
+    private List<User> getListData() {
+        Toast.makeText(this, "Load page: " + currentPage, Toast.LENGTH_SHORT).show();
+        return getListUser();
     }
 
     private void handleDeleteItemWhenTouch() {
@@ -96,5 +117,45 @@ public class LinearVerticalActivity extends BaseActivity {
             }
         });
         helper.attachToRecyclerView(rcvUsers);
+    }
+
+    private void handleLoadMorePage() {
+        rcvUsers.addOnScrollListener(new PaginationScrollListener(manager) {
+            @Override
+            public void loadMoreItems() {
+                isLoading = true;
+                currentPage += 1;
+                pbLoading.setVisibility(View.VISIBLE);
+                loadMore();
+            }
+
+            @Override
+            public boolean isLoading() {
+                return isLoading;
+            }
+
+            @Override
+            public boolean isLastPage() {
+                return isLastPage;
+            }
+        });
+    }
+
+    private void loadMore() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                List<User> list = getListData();
+                mList.addAll(list);
+                adapter.notifyDataSetChanged();
+
+                isLoading = false;
+                pbLoading.setVisibility(View.GONE);
+                if (currentPage == lastPage) {
+                    isLastPage = true;
+                }
+            }
+        }, 2000);
     }
 }
