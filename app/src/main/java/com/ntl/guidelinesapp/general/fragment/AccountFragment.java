@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.template.fragment;
+package com.ntl.guidelinesapp.general.fragment;
 
 import android.os.Bundle;
 

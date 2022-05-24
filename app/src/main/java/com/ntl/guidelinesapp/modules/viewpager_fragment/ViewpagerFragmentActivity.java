@@ -10,8 +10,8 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab1;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab2;
+import com.ntl.guidelinesapp.general.fragment.FavoriteFragment;
+import com.ntl.guidelinesapp.general.fragment.HomeFragment;
 
 public class ViewpagerFragmentActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -63,14 +63,14 @@ public class ViewpagerFragmentActivity extends AppCompatActivity {
                         viewPager.setCurrentItem(0);
 
                         //load fragment when click bottom menu
-                        FragmentTab1 fragment = (FragmentTab1) getSupportFragmentManager().getFragments().get(0);
+                        HomeFragment fragment = (HomeFragment) getSupportFragmentManager().getFragments().get(0);
                         fragment.reloadData();
                         break;
                     case R.id.menu_bottom_favorite:
                         viewPager.setCurrentItem(1);
 
                         //load fragment when click bottom menu
-                        FragmentTab2 fragment2 = (FragmentTab2) getSupportFragmentManager().getFragments().get(1);
+                        FavoriteFragment fragment2 = (FavoriteFragment) getSupportFragmentManager().getFragments().get(1);
                         fragment2.reloadData();
                         break;
                     case R.id.menu_bottom_history:

@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.ntl.guidelinesapp.modules.template.fragment.FavoriteFragment;
-import com.ntl.guidelinesapp.modules.template.fragment.HistoryFragment;
-import com.ntl.guidelinesapp.modules.template.fragment.HomeFragment;
+import com.ntl.guidelinesapp.general.fragment.FavoriteFragment;
+import com.ntl.guidelinesapp.general.fragment.HistoryFragment;
+import com.ntl.guidelinesapp.general.fragment.HomeFragment;
 import com.ntl.guidelinesapp.modules.template.fragment.MyAccountFragment;
 
 public class MyViewPager2Adapter extends FragmentStateAdapter {
