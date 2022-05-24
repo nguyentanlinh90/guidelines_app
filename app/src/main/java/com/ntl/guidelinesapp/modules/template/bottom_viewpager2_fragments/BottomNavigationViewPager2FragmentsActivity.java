@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 
@@ -31,11 +30,11 @@ public class BottomNavigationViewPager2FragmentsActivity extends AppCompatActivi
 
         bnvMain.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.home) {
+            if (id == R.id.menu_bottom_home) {
                 vpMain.setCurrentItem(0);
-            } else if (id == R.id.favorite) {
+            } else if (id == R.id.menu_bottom_favorite) {
                 vpMain.setCurrentItem(1);
-            } else if (id == R.id.discovery) {
+            } else if (id == R.id.menu_bottom_history) {
                 vpMain.setCurrentItem(2);
             } else {
                 vpMain.setCurrentItem(3);
@@ -49,16 +48,16 @@ public class BottomNavigationViewPager2FragmentsActivity extends AppCompatActivi
                 super.onPageSelected(position);
                 switch (position) {
                     case 1:
-                        bnvMain.getMenu().findItem(R.id.favorite).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_favorite).setChecked(true);
                         break;
                     case 2:
-                        bnvMain.getMenu().findItem(R.id.discovery).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_history).setChecked(true);
                         break;
                     case 3:
-                        bnvMain.getMenu().findItem(R.id.account).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_account).setChecked(true);
                         break;
                     default:
-                        bnvMain.getMenu().findItem(R.id.home).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_home).setChecked(true);
                 }
             }
         });

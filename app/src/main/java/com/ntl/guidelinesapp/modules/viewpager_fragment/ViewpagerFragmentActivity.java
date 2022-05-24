@@ -2,25 +2,16 @@ package com.ntl.guidelinesapp.modules.viewpager_fragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.lifecycle.Lifecycle;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab1;
 import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab2;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab3;
-import com.ntl.guidelinesapp.modules.viewpager_fragment.fragment.FragmentTab4;
 
 public class ViewpagerFragmentActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -49,16 +40,16 @@ public class ViewpagerFragmentActivity extends AppCompatActivity {
                 super.onPageSelected(position);
                 switch (position) {
                     case 0:
-                        bottomNavigationView.getMenu().findItem(R.id.home).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.menu_bottom_home).setChecked(true);
                         break;
                     case 1:
-                        bottomNavigationView.getMenu().findItem(R.id.favorite).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.menu_bottom_favorite).setChecked(true);
                         break;
                     case 2:
-                        bottomNavigationView.getMenu().findItem(R.id.discovery).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.menu_bottom_history).setChecked(true);
                         break;
                     case 3:
-                        bottomNavigationView.getMenu().findItem(R.id.account).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.menu_bottom_account).setChecked(true);
                         break;
                 }
             }
@@ -68,24 +59,24 @@ public class ViewpagerFragmentActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.home:
+                    case R.id.menu_bottom_home:
                         viewPager.setCurrentItem(0);
 
                         //load fragment when click bottom menu
                         FragmentTab1 fragment = (FragmentTab1) getSupportFragmentManager().getFragments().get(0);
                         fragment.reloadData();
                         break;
-                    case R.id.favorite:
+                    case R.id.menu_bottom_favorite:
                         viewPager.setCurrentItem(1);
 
                         //load fragment when click bottom menu
                         FragmentTab2 fragment2 = (FragmentTab2) getSupportFragmentManager().getFragments().get(1);
                         fragment2.reloadData();
                         break;
-                    case R.id.discovery:
+                    case R.id.menu_bottom_history:
                         viewPager.setCurrentItem(2);
                         break;
-                    case R.id.account:
+                    case R.id.menu_bottom_account:
                         viewPager.setCurrentItem(3);
                         break;
                 }

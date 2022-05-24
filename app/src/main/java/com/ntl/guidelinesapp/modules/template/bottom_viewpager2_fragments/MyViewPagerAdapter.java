@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.ntl.guidelinesapp.modules.template.fragment.AccountFragment;
-import com.ntl.guidelinesapp.modules.template.fragment.DiscoveryFragment;
 import com.ntl.guidelinesapp.modules.template.fragment.FavoriteFragment;
+import com.ntl.guidelinesapp.modules.template.fragment.HistoryFragment;
 import com.ntl.guidelinesapp.modules.template.fragment.HomeFragment;
 
 public class MyViewPagerAdapter extends FragmentStateAdapter {
@@ -22,7 +22,7 @@ public class MyViewPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new FavoriteFragment();
             case 2:
-                return new DiscoveryFragment();
+                return new HistoryFragment();
             case 3:
                 return new AccountFragment();
             default:

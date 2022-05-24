@@ -30,11 +30,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MyProfileFragment#newInstance} factory method to
+ * Use the {@link MyAccountFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyProfileFragment extends BaseFragment {
-    private final String TAG = MyProfileFragment.class.getSimpleName();
+public class MyAccountFragment extends BaseFragment {
+    private final String TAG = MyAccountFragment.class.getSimpleName();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,7 +55,7 @@ public class MyProfileFragment extends BaseFragment {
     private FirebaseUser mUser;
     private Uri uriAvatar = null;
 
-    public MyProfileFragment() {
+    public MyAccountFragment() {
         // Required empty public constructor
     }
 
@@ -68,8 +68,8 @@ public class MyProfileFragment extends BaseFragment {
      * @return A new instance of fragment MyProfileFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MyProfileFragment newInstance(String param1, String param2) {
-        MyProfileFragment fragment = new MyProfileFragment();
+    public static MyAccountFragment newInstance(String param1, String param2) {
+        MyAccountFragment fragment = new MyAccountFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

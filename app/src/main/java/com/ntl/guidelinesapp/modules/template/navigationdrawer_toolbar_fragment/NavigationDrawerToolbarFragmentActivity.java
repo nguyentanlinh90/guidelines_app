@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -36,12 +37,7 @@ import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.firebase.email_password.EmailPasswordActivity;
 import com.ntl.guidelinesapp.modules.template.bottom_viewpager2_fragments.DepthPageTransformer;
-import com.ntl.guidelinesapp.modules.template.bottom_viewpager2_fragments.ZoomOutPageTransformer;
-import com.ntl.guidelinesapp.modules.template.fragment.ChangePasswordFragment;
-import com.ntl.guidelinesapp.modules.template.fragment.FavoriteFragment;
-import com.ntl.guidelinesapp.modules.template.fragment.HistoryFragment;
-import com.ntl.guidelinesapp.modules.template.fragment.HomeFragment;
-import com.ntl.guidelinesapp.modules.template.fragment.MyProfileFragment;
+import com.ntl.guidelinesapp.modules.template.fragment.MyAccountFragment;
 
 import java.io.IOException;
 
@@ -51,19 +47,20 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
     private int FRAGMENT_HOME = 1;
     private int FRAGMENT_FAVORITE = 2;
     private int FRAGMENT_HISTORY = 3;
-    private int FRAGMENT_MY_PROFILE = 4;
+    private int FRAGMENT_MY_ACCOUNT = 4;
     private int FRAGMENT_CHANGE_ACCOUNT = 5;
     private int mCurrentFragment = 1;
 
     private NavigationView mNavigationView;
 
-    private final MyProfileFragment mMyProfileFragment = new MyProfileFragment();
+    private final MyAccountFragment mMyProfileFragment = new MyAccountFragment();
 
     public ProgressDialog progressDialog;
 
     private TabLayout tlMain;
     private ViewPager2 vp2Main;
     private MyViewPager2Adapter adapter;
+    private BottomNavigationView bnvMain;
 
     public ActivityResultLauncher<String> mPermissionReadStorageResult = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
@@ -106,6 +103,8 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
 
         tlMain = findViewById(R.id.tl_main);
         vp2Main = findViewById(R.id.vp2_main);
+        bnvMain = findViewById(R.id.bnv_main);
+
         vp2Main.setPageTransformer(new DepthPageTransformer());
         adapter = new MyViewPager2Adapter(this);
         vp2Main.setAdapter(adapter);
@@ -117,6 +116,9 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
                     break;
                 case 2:
                     tab.setText("History");
+                    break;
+                case 3:
+                    tab.setText("Account");
                     break;
                 default:
                     tab.setText("Home");
@@ -161,18 +163,49 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
                     case 1:
                         mCurrentFragment = FRAGMENT_FAVORITE;
                         mNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_favorite).setChecked(true);
                         break;
                     case 2:
                         mCurrentFragment = FRAGMENT_HISTORY;
                         mNavigationView.getMenu().findItem(R.id.nav_history).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_history).setChecked(true);
+                        break;
+                    case 3:
+                        mCurrentFragment = FRAGMENT_MY_ACCOUNT;
+                        mNavigationView.getMenu().findItem(R.id.nav_my_account).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_account).setChecked(true);
                         break;
                     default:
                         mCurrentFragment = FRAGMENT_HOME;
                         mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+                        bnvMain.getMenu().findItem(R.id.menu_bottom_home).setChecked(true);
                         break;
                 }
             }
         });
+
+        bnvMain.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.menu_bottom_home) {
+                vp2Main.setCurrentItem(0);
+                mCurrentFragment = FRAGMENT_HOME;
+                mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+            } else if (id == R.id.menu_bottom_favorite) {
+                vp2Main.setCurrentItem(1);
+                mCurrentFragment = FRAGMENT_FAVORITE;
+                mNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
+            } else if (id == R.id.menu_bottom_history) {
+                vp2Main.setCurrentItem(2);
+                mCurrentFragment = FRAGMENT_HISTORY;
+                mNavigationView.getMenu().findItem(R.id.nav_history).setChecked(true);
+            } else {
+                vp2Main.setCurrentItem(3);
+                mCurrentFragment = FRAGMENT_MY_ACCOUNT;
+                mNavigationView.getMenu().findItem(R.id.nav_my_account).setChecked(true);
+            }
+            return true;
+        });
+
     }
 
     @Override
@@ -183,6 +216,7 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
 //                    replaceFragment(R.id.fl_content, new HomeFragment());
                     vp2Main.setCurrentItem(0);
                     mCurrentFragment = FRAGMENT_HOME;
+                    bnvMain.getMenu().findItem(R.id.menu_bottom_home).setChecked(true);
                 }
                 break;
             case R.id.nav_favorite:
@@ -190,6 +224,7 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
 //                    replaceFragment(R.id.fl_content, new FavoriteFragment());
                     vp2Main.setCurrentItem(1);
                     mCurrentFragment = FRAGMENT_FAVORITE;
+                    bnvMain.getMenu().findItem(R.id.menu_bottom_favorite).setChecked(true);
                 }
                 break;
             case R.id.nav_history:
@@ -197,12 +232,15 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
 //                    replaceFragment(R.id.fl_content, new HistoryFragment());
                     vp2Main.setCurrentItem(2);
                     mCurrentFragment = FRAGMENT_HISTORY;
+                    bnvMain.getMenu().findItem(R.id.menu_bottom_history).setChecked(true);
                 }
                 break;
-            case R.id.nav_my_profile:
-                if (mCurrentFragment != FRAGMENT_MY_PROFILE) {
+            case R.id.nav_my_account:
+                if (mCurrentFragment != FRAGMENT_MY_ACCOUNT) {
 //                    replaceFragment(R.id.fl_content, mMyProfileFragment);
-                    mCurrentFragment = FRAGMENT_MY_PROFILE;
+                    vp2Main.setCurrentItem(3);
+                    mCurrentFragment = FRAGMENT_MY_ACCOUNT;
+                    bnvMain.getMenu().findItem(R.id.menu_bottom_account).setChecked(true);
                 }
                 break;
             case R.id.nav_change_password:
