@@ -24,6 +24,7 @@ import com.ntl.guidelinesapp.modules.list.type.RCVInsideRCVActivity;
 import com.ntl.guidelinesapp.modules.list.type.StaggeredGridActivity;
 import com.ntl.guidelinesapp.modules.list.type.StickyHeadersActivity;
 import com.ntl.guidelinesapp.modules.list.type.StickyHeadersExpandCollapseActivity;
+import com.ntl.guidelinesapp.modules.list.type.SwipeActivity;
 
 public class ListActivity extends BaseActivity {
 
@@ -87,6 +88,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_concat_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, ConcatActivity.class);
+        });
+
+        findViewById(R.id.bt_swipe_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, SwipeActivity.class);
         });
 
     }
