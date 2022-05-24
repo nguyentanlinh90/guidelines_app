@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
+import com.ntl.guidelinesapp.modules.list.type.ExpandCollapseFoldingCellAnimationActivity;
 import com.ntl.guidelinesapp.modules.list.type.ExpandableListViewActivity;
 import com.ntl.guidelinesapp.modules.list.type.GridActivity;
 import com.ntl.guidelinesapp.modules.list.type.InstagramActivity;
@@ -62,6 +63,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_expandable_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, ExpandableListViewActivity.class);
+        });
+
+        findViewById(R.id.bt_expand_collapse_folding_cell_animation_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, ExpandCollapseFoldingCellAnimationActivity.class);
         });
 
     }

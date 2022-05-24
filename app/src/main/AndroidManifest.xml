@@ -17,9 +17,13 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.list.type.ExpandableListViewActivity"
+            android:name=".modules.list.type.ExpandCollapseFoldingCellAnimationActivity"
             android:exported="false"
             android:parentActivityName=".modules.list.ListActivity"/>
+        <activity
+            android:name=".modules.list.type.ExpandableListViewActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.list.ListActivity" />
         <activity
             android:name=".modules.list.type.InstagramActivity"
             android:exported="false"

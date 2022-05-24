@@ -18,62 +18,69 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Grid List" />
+            android:text="Grid" />
 
         <Button
             android:id="@+id/bt_linear_vertical_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Linear Vertical List" />
+            android:text="Linear Vertical" />
 
         <Button
             android:id="@+id/bt_linear_horizontal_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Linear Horizontal List" />
+            android:text="Linear Horizontal" />
 
         <Button
             android:id="@+id/bt_staggered_grid_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Staggered Grid List" />
+            android:text="Staggered Grid" />
 
         <Button
             android:id="@+id/bt_multiple_view_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Multiple View List" />
+            android:text="Multiple View" />
 
         <Button
             android:id="@+id/bt_sticky_headers_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Sticky Headers List" />
+            android:text="Sticky Headers" />
 
         <Button
             android:id="@+id/bt_sticky_headers_expand_collapse_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Sticky Headers Expand/Collapse List" />
+            android:text="Sticky Headers Expand/Collapse" />
 
         <Button
             android:id="@+id/bt_instagram_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Instagram List" />
+            android:text="Instagram" />
 
         <Button
             android:id="@+id/bt_expandable_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:text="Expandable List" />
+            android:text="Expandable" />
+
+        <Button
+            android:id="@+id/bt_expand_collapse_folding_cell_animation_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Expand Collapse Folding Cell Animation" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
