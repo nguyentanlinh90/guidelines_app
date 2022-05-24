@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment;
+package com.ntl.guidelinesapp.modules.template.fragment;
 
 import android.Manifest;
 import android.content.Intent;

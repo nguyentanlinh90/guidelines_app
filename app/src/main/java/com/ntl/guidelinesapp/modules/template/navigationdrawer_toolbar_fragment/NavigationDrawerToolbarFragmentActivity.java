@@ -32,11 +32,11 @@ import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.firebase.email_password.EmailPasswordActivity;
-import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment.ChangePasswordFragment;
-import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment.FavoriteFragment;
-import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment.HistoryFragment;
-import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment.HomeFragment;
-import com.ntl.guidelinesapp.modules.template.navigationdrawer_toolbar_fragment.fragment.MyProfileFragment;
+import com.ntl.guidelinesapp.modules.template.fragment.ChangePasswordFragment;
+import com.ntl.guidelinesapp.modules.template.fragment.FavoriteFragment;
+import com.ntl.guidelinesapp.modules.template.fragment.HistoryFragment;
+import com.ntl.guidelinesapp.modules.template.fragment.HomeFragment;
+import com.ntl.guidelinesapp.modules.template.fragment.MyProfileFragment;
 
 import java.io.IOException;
 

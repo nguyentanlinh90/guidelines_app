@@ -17,6 +17,10 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.template.bottom_viewpager2_fragments.BottomNavigationViewPager2FragmentsActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.template.TemplateActivity" />
+        <activity
             android:name=".modules.list.type.ChangeTypeListActivity"
             android:exported="false"
             android:parentActivityName=".modules.list.ListActivity" />

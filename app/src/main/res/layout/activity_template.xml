@@ -9,8 +9,14 @@
     tools:context=".modules.template.TemplateActivity">
 
     <Button
+        android:id="@+id/bt_bottomnavigation_viewpager2_fragments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BottomNavigation + ViewPager2 + Fragments"/>
+
+    <Button
         android:id="@+id/bt_navigationdrawer_toolbar_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NavigationDrawer Toolbar Fragment"/>
+        android:text="NavigationDrawer Toolbar Fragments"/>
 </LinearLayout>
