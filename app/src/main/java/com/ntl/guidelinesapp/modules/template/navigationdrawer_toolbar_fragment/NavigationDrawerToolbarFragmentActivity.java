@@ -43,7 +43,7 @@ import java.io.IOException;
 
 public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     private final String TAG = NavigationDrawerToolbarFragmentActivity.class.getSimpleName();
-    DrawerLayout mDrawerLayout;
+    DrawerLayout dlMain;
     private int FRAGMENT_HOME = 1;
     private int FRAGMENT_FAVORITE = 2;
     private int FRAGMENT_HISTORY = 3;
@@ -51,7 +51,7 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
     private int FRAGMENT_CHANGE_ACCOUNT = 5;
     private int mCurrentFragment = 1;
 
-    private NavigationView mNavigationView;
+    private NavigationView navMainLeft;
 
     private final MyAccountFragment mMyProfileFragment = new MyAccountFragment();
 
@@ -129,10 +129,10 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
         //change color title toolbar
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-        mDrawerLayout = findViewById(R.id.drawable_layout);
+        dlMain = findViewById(R.id.dl_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar, R.string.drawer_navigation_open, R.string.drawer_navigation_close);
-        mDrawerLayout.addDrawerListener(toggle);
+                this, dlMain, toolbar, R.string.drawer_navigation_open, R.string.drawer_navigation_close);
+        dlMain.addDrawerListener(toggle);
 
         //change color button toggle drawer
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -143,12 +143,12 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
 
         toggle.syncState();
 
-        mNavigationView = findViewById(R.id.navigation_view);
+        navMainLeft = findViewById(R.id.nav_main_left);
 
-        mNavigationView.setNavigationItemSelectedListener(this);
+        navMainLeft.setNavigationItemSelectedListener(this);
 
 //        replaceFragment(R.id.fl_content, new HomeFragment());
-        mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+        navMainLeft.getMenu().findItem(R.id.nav_home).setChecked(true);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Waiting...");
@@ -162,22 +162,22 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
                 switch (position) {
                     case 1:
                         mCurrentFragment = FRAGMENT_FAVORITE;
-                        mNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
+                        navMainLeft.getMenu().findItem(R.id.nav_favorite).setChecked(true);
                         bnvMain.getMenu().findItem(R.id.menu_bottom_favorite).setChecked(true);
                         break;
                     case 2:
                         mCurrentFragment = FRAGMENT_HISTORY;
-                        mNavigationView.getMenu().findItem(R.id.nav_history).setChecked(true);
+                        navMainLeft.getMenu().findItem(R.id.nav_history).setChecked(true);
                         bnvMain.getMenu().findItem(R.id.menu_bottom_history).setChecked(true);
                         break;
                     case 3:
                         mCurrentFragment = FRAGMENT_MY_ACCOUNT;
-                        mNavigationView.getMenu().findItem(R.id.nav_my_account).setChecked(true);
+                        navMainLeft.getMenu().findItem(R.id.nav_my_account).setChecked(true);
                         bnvMain.getMenu().findItem(R.id.menu_bottom_account).setChecked(true);
                         break;
                     default:
                         mCurrentFragment = FRAGMENT_HOME;
-                        mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+                        navMainLeft.getMenu().findItem(R.id.nav_home).setChecked(true);
                         bnvMain.getMenu().findItem(R.id.menu_bottom_home).setChecked(true);
                         break;
                 }
@@ -189,19 +189,19 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
             if (id == R.id.menu_bottom_home) {
                 vp2Main.setCurrentItem(0);
                 mCurrentFragment = FRAGMENT_HOME;
-                mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+                navMainLeft.getMenu().findItem(R.id.nav_home).setChecked(true);
             } else if (id == R.id.menu_bottom_favorite) {
                 vp2Main.setCurrentItem(1);
                 mCurrentFragment = FRAGMENT_FAVORITE;
-                mNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
+                navMainLeft.getMenu().findItem(R.id.nav_favorite).setChecked(true);
             } else if (id == R.id.menu_bottom_history) {
                 vp2Main.setCurrentItem(2);
                 mCurrentFragment = FRAGMENT_HISTORY;
-                mNavigationView.getMenu().findItem(R.id.nav_history).setChecked(true);
+                navMainLeft.getMenu().findItem(R.id.nav_history).setChecked(true);
             } else {
                 vp2Main.setCurrentItem(3);
                 mCurrentFragment = FRAGMENT_MY_ACCOUNT;
-                mNavigationView.getMenu().findItem(R.id.nav_my_account).setChecked(true);
+                navMainLeft.getMenu().findItem(R.id.nav_my_account).setChecked(true);
             }
             return true;
         });
@@ -255,14 +255,14 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
                 finish();
                 break;
         }
-        mDrawerLayout.closeDrawer(GravityCompat.START);
+        dlMain.closeDrawer(GravityCompat.START);
         return true;
     }
 
     @Override
     public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
+        if (dlMain.isDrawerOpen(GravityCompat.START)) {
+            dlMain.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -271,9 +271,9 @@ public class NavigationDrawerToolbarFragmentActivity extends BaseActivity implem
     public void updateUI() {
         FirebaseUser user = getUser();
         if (user != null) {
-            ImageView ivProfile = mNavigationView.getHeaderView(0).findViewById(R.id.profile_image);
-            TextView tvName = mNavigationView.getHeaderView(0).findViewById(R.id.tv_name);
-            TextView tvEmail = mNavigationView.getHeaderView(0).findViewById(R.id.tv_email);
+            ImageView ivProfile = navMainLeft.getHeaderView(0).findViewById(R.id.profile_image);
+            TextView tvName = navMainLeft.getHeaderView(0).findViewById(R.id.tv_name);
+            TextView tvEmail = navMainLeft.getHeaderView(0).findViewById(R.id.tv_email);
 
             Glide.with(this).load(user.getPhotoUrl()).error(R.drawable.ic_baseline_person_24).into(ivProfile);
             if (user.getDisplayName() != null) {
