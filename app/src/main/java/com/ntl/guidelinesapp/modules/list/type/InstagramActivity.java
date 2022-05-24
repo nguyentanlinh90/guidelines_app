@@ -40,7 +40,7 @@ public class InstagramActivity extends AppCompatActivity {
         for (int i = 0; i < 20; i++) {
             List<Photo> photos = new ArrayList<>();
             for (int j = 0; j < 3; j++) {
-                Photo photo = new Photo(R.drawable.dog_image);
+                Photo photo = new Photo(R.drawable.img_400_600);
                 photos.add(photo);
             }
             listPhotos.add(new ListPhoto(type, photos));

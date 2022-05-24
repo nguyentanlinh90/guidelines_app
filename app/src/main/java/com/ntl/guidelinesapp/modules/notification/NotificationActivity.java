@@ -97,7 +97,7 @@ public class NotificationActivity extends AppCompatActivity {
     private void sendNotification2() {
         Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_400_600);
 
         Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID_2)
                 .setContentTitle("Notification title 2")
@@ -120,7 +120,7 @@ public class NotificationActivity extends AppCompatActivity {
         Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
 
         //should resize bitmap to avoid exception if size image to big
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_400_600);
 
         //for default
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.layout_custom_notification);
@@ -180,7 +180,7 @@ public class NotificationActivity extends AppCompatActivity {
     }
 
     private void sendNotificationMedia() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dog_image);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_400_600);
         MediaSessionCompat mediaSessionCompat = new MediaSessionCompat(this, "tag");
 
         Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID_2)

@@ -42,7 +42,7 @@ public class LinearHorizontalActivity extends BaseActivity {
         for (int i = 0; i < 10; i++) {
             List<User> userList = new ArrayList<>();
             for (int j = 0; j < 20; j++) {
-                userList.add(new User(R.drawable.dog_image, "User: " + j));
+                userList.add(new User(R.drawable.img_400_600, "User: " + j));
             }
             typeUserList.add(new TypeUser("Type User: " + i, userList));
         }

@@ -53,7 +53,7 @@ public class ChatActivity extends BaseActivity {
         if (TextUtils.isEmpty(strMessage)) {
             return;
         }
-        mList.add(new User(R.drawable.dog_image, strMessage));
+        mList.add(new User(R.drawable.img_400_600, strMessage));
         adapter.setData(mList);
         rcvMessage.scrollToPosition(mList.size() - 1);
         edtMessage.setText("");

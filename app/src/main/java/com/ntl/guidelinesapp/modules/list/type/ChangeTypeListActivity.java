@@ -86,8 +86,9 @@ public class ChangeTypeListActivity extends BaseActivity {
         if (id == R.id.action_menu_list_type) {
             setCurrentItemPosition();
             onclickChangeTypeDisplay();
+        } else {
+            super.onBackPressed();
         }
-        Toast.makeText(this, "click", Toast.LENGTH_SHORT).show();
         return true;
     }
 

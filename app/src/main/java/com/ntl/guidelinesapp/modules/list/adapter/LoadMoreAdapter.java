@@ -95,7 +95,7 @@ public class LoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public void addFooterLoading() {
         isLoadingAdd = true;
-        User user = new User(R.drawable.dog_image, "");
+        User user = new User(R.drawable.img_400_600, "");
     }
 
     public void removeFooterLoading() {

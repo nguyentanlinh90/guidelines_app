@@ -43,29 +43,29 @@ public class StickyHeadersExpandCollapseActivity extends AppCompatActivity {
 
     private List<User> getList() {
         List<User> list = new ArrayList<>();
-        list.add(new User(R.drawable.dog_image, "A"));
-        list.add(new User(R.drawable.dog_image, "Adsd"));
-        list.add(new User(R.drawable.dog_image, "Adq"));
-        list.add(new User(R.drawable.dog_image, "Aggh"));
-        list.add(new User(R.drawable.dog_image, "Afwerwr"));
-        list.add(new User(R.drawable.dog_image, "Arervc"));
-        list.add(new User(R.drawable.dog_image, "Adfsfsdfsd"));
+        list.add(new User(R.drawable.img_400_600, "A"));
+        list.add(new User(R.drawable.img_400_600, "Adsd"));
+        list.add(new User(R.drawable.img_400_600, "Adq"));
+        list.add(new User(R.drawable.img_400_600, "Aggh"));
+        list.add(new User(R.drawable.img_400_600, "Afwerwr"));
+        list.add(new User(R.drawable.img_400_600, "Arervc"));
+        list.add(new User(R.drawable.img_400_600, "Adfsfsdfsd"));
 
-        list.add(new User(R.drawable.dog_image, "B"));
-        list.add(new User(R.drawable.dog_image, "Bdsd"));
-        list.add(new User(R.drawable.dog_image, "Bdq"));
-        list.add(new User(R.drawable.dog_image, "Bggh"));
-        list.add(new User(R.drawable.dog_image, "Bfwerwr"));
-        list.add(new User(R.drawable.dog_image, "Brervc"));
-        list.add(new User(R.drawable.dog_image, "Bdfsfsdfsd"));
+        list.add(new User(R.drawable.img_400_600, "B"));
+        list.add(new User(R.drawable.img_400_600, "Bdsd"));
+        list.add(new User(R.drawable.img_400_600, "Bdq"));
+        list.add(new User(R.drawable.img_400_600, "Bggh"));
+        list.add(new User(R.drawable.img_400_600, "Bfwerwr"));
+        list.add(new User(R.drawable.img_400_600, "Brervc"));
+        list.add(new User(R.drawable.img_400_600, "Bdfsfsdfsd"));
 
-        list.add(new User(R.drawable.dog_image, "C"));
-        list.add(new User(R.drawable.dog_image, "Cdsd"));
-        list.add(new User(R.drawable.dog_image, "Cdq"));
-        list.add(new User(R.drawable.dog_image, "Cggh"));
-        list.add(new User(R.drawable.dog_image, "Cfwerwr"));
-        list.add(new User(R.drawable.dog_image, "Crervc"));
-        list.add(new User(R.drawable.dog_image, "Cdfsfsdfsd"));
+        list.add(new User(R.drawable.img_400_600, "C"));
+        list.add(new User(R.drawable.img_400_600, "Cdsd"));
+        list.add(new User(R.drawable.img_400_600, "Cdq"));
+        list.add(new User(R.drawable.img_400_600, "Cggh"));
+        list.add(new User(R.drawable.img_400_600, "Cfwerwr"));
+        list.add(new User(R.drawable.img_400_600, "Crervc"));
+        list.add(new User(R.drawable.img_400_600, "Cdfsfsdfsd"));
         return list;
     }
 }

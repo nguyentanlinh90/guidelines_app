@@ -37,7 +37,7 @@ public class MultipleViewActivity extends AppCompatActivity {
     public List<User> getListUser() {
         List<User> userList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            userList.add(new User(R.drawable.dog_image, "User: " + i, i < 10 ? 1 : 2));
+            userList.add(new User(R.drawable.img_400_600, "User: " + i, i < 10 ? 1 : 2));
         }
         return userList;
     }
