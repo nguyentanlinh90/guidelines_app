@@ -17,6 +17,10 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.list.type.ChangeTypeListActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.list.ListActivity" />
+        <activity
             android:name=".modules.list.type.SwipeActivity"
             android:exported="false"
             android:parentActivityName=".modules.list.ListActivity" />

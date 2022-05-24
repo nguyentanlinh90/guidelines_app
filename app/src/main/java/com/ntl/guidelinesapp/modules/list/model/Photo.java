@@ -1,7 +1,17 @@
 package com.ntl.guidelinesapp.modules.list.model;
 
 public class Photo {
+    public static int TYPE_GRID = 1;
+    public static int TYPE_LIST = 2;
+    public static int TYPE_STAGGERED = 3;
+
     private int resource;
+    private String url;
+    private int type;
+
+    public Photo(String url) {
+        this.url = url;
+    }
 
     public Photo(int resource) {
         this.resource = resource;
@@ -13,5 +23,21 @@ public class Photo {
 
     public void setResource(int resource) {
         this.resource = resource;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

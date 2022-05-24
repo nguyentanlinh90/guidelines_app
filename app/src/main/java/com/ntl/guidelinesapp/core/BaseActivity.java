@@ -39,7 +39,7 @@ public class BaseActivity extends AppCompatActivity {
     public List<User> getListUser() {
         List<User> userList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            userList.add(new User(R.drawable.dog_image, "User: " + i));
+            userList.add(new User(R.drawable.img_200_300, "User: " + i));
         }
         return userList;
     }

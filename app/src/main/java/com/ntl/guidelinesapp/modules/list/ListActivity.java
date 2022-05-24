@@ -10,6 +10,8 @@ import android.os.Bundle;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
+import com.ntl.guidelinesapp.modules.list.adapter.ChangeTypeAdapter;
+import com.ntl.guidelinesapp.modules.list.type.ChangeTypeListActivity;
 import com.ntl.guidelinesapp.modules.list.type.ChatActivity;
 import com.ntl.guidelinesapp.modules.list.type.ConcatActivity;
 import com.ntl.guidelinesapp.modules.list.type.ExpandCollapseFoldingCellAnimationActivity;
@@ -92,6 +94,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_swipe_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, SwipeActivity.class);
+        });
+
+        findViewById(R.id.bt_change_type_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, ChangeTypeListActivity.class);
         });
 
     }
