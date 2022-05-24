@@ -18,6 +18,7 @@ import com.ntl.guidelinesapp.modules.list.type.LinearHorizontalActivity;
 import com.ntl.guidelinesapp.modules.list.type.LinearVerticalActivity;
 import com.ntl.guidelinesapp.modules.list.type.LoadMoreActivity;
 import com.ntl.guidelinesapp.modules.list.type.MultipleViewActivity;
+import com.ntl.guidelinesapp.modules.list.type.RCVInsideRCVActivity;
 import com.ntl.guidelinesapp.modules.list.type.StaggeredGridActivity;
 import com.ntl.guidelinesapp.modules.list.type.StickyHeadersActivity;
 import com.ntl.guidelinesapp.modules.list.type.StickyHeadersExpandCollapseActivity;
@@ -72,6 +73,10 @@ public class ListActivity extends BaseActivity {
 
         findViewById(R.id.bt_load_more_list).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, LoadMoreActivity.class);
+        });
+
+        findViewById(R.id.bt_rcv_inside_rcv_list).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, RCVInsideRCVActivity.class);
         });
 
     }
