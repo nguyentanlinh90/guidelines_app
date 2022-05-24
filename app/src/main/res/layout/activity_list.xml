@@ -14,6 +14,13 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/bt_concat_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:text="Concat Adapter" />
+
+        <Button
             android:id="@+id/bt_chat_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
