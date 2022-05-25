@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:name=".core.MyApplication"
@@ -16,15 +17,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".modules.service.type.ForegroundServiceActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.service.ServiceActivity" />
+        <activity
+            android:name=".modules.service.ServiceActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".modules.room_db.RoomUpdateActivity"
             android:exported="false"
-            android:parentActivityName=".modules.room_db.RoomDBActivity"/>
+            android:parentActivityName=".modules.room_db.RoomDBActivity" />
         <activity
             android:name=".modules.room_db.RoomDBActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".modules.image_slider.CustomSliderActivity"
             android:exported="false"
@@ -225,6 +233,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <service android:name=".modules.service.type.MyMusicService" />
     </application>
 
 </manifest>

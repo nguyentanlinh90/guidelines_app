@@ -1,6 +1,5 @@
 package com.ntl.guidelinesapp.modules.notification;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -20,12 +19,13 @@ import android.widget.Button;
 import android.widget.RemoteViews;
 
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.core.BaseActivity;
 import com.ntl.guidelinesapp.core.MyApplication;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NotificationActivity extends AppCompatActivity {
+public class NotificationActivity extends BaseActivity {
 
     private static final String CONTENT_PUSH_NOTIFICATION = "Theo đó, khi biết \"tiểu tam\" qua lại với chồng mình, người vợ không đánh ghen ầm ĩ, cũng không \"bóc phốt\" hay chửi bới qua lại trên mạng xã hội mà lựa chọn cách đánh ghen của riêng mình. \n" +
             "\n" +
@@ -90,10 +90,6 @@ public class NotificationActivity extends AppCompatActivity {
         }
     }
 
-    private int getNotificationId() {
-        return (int) new Date().getTime();
-    }
-
     private void sendNotification2() {
         Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
 
@@ -112,7 +108,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .build();
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-        notificationManagerCompat.notify(getNotificationId(), notification);
+        notificationManagerCompat.notify(getRandomNotificationId(), notification);
     }
 
     private void sendNotificationCustom() {
@@ -148,7 +144,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .build();
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-        notificationManagerCompat.notify(getNotificationId(), notification);
+        notificationManagerCompat.notify(getRandomNotificationId(), notification);
     }
 
     private PendingIntent pendingIntentRegular() {
@@ -199,7 +195,7 @@ public class NotificationActivity extends AppCompatActivity {
                         )
                 .build();
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-        notificationManagerCompat.notify(getNotificationId(), notification);
+        notificationManagerCompat.notify(getRandomNotificationId(), notification);
 
     }
 }

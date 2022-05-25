@@ -38,7 +38,8 @@ public class MyApplication extends Application {
             channel.setDescription(getString(R.string.channel_des));
             //lay am thanh default notification trong device
             Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            channel.setSound(uri, audioAttributes);
+//            channel.setSound(uri, audioAttributes);
+            channel.setSound(null, null);
 
             //config channel 2
             @SuppressLint("WrongConstant") NotificationChannel channel2 = new NotificationChannel(CHANNEL_ID_2, getString(R.string.channel_name_2), NotificationManager.IMPORTANCE_MAX);

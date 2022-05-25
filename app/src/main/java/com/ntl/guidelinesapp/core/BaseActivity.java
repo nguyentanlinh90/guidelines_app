@@ -12,6 +12,7 @@ import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.list.model.User;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BaseActivity extends AppCompatActivity {
@@ -42,5 +43,9 @@ public class BaseActivity extends AppCompatActivity {
             userList.add(new User(R.drawable.img_400_600, "User: " + i));
         }
         return userList;
+    }
+
+    public int getRandomNotificationId() {
+        return (int) new Date().getTime();
     }
 }
