@@ -13,6 +13,8 @@ import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.image_slider.ImageSliderActivity;
 import com.ntl.guidelinesapp.modules.image_slider.adapter.ImageSliderViewPager2CircleIndicatorAdapter;
 import com.ntl.guidelinesapp.modules.list.model.Photo;
+import com.ntl.guidelinesapp.modules.template.bottom_viewpager2_fragments.DepthPageTransformer;
+import com.ntl.guidelinesapp.modules.template.bottom_viewpager2_fragments.ZoomOutPageTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,6 +113,11 @@ public class ImageSliderViewPager2CircleIndicatorFragment extends Fragment {
                 handler.postDelayed(runnable, 2000);
             }
         });
+
+        vp2Photo.setPageTransformer(new ZoomOutPageTransformer());
+
+        //or
+        //vp2Photo.setPageTransformer(new DepthPageTransformer());
 
         return view;
     }
