@@ -39,6 +39,10 @@ public class ImageSliderActivity extends BaseActivity {
         findViewById(R.id.bt_3).setOnClickListener(v -> {
             AppUtils.gotoScreen(this, SliderViewpager2MultipleFragmentsActivity.class);
         });
+
+        findViewById(R.id.bt_4).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, CustomSliderActivity.class);
+        });
     }
 
     private void openFragment(Fragment fragment) {

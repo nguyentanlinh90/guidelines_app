@@ -17,9 +17,13 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.image_slider.SliderViewpager2MultipleFragmentsActivity"
+            android:name=".modules.image_slider.CustomSliderActivity"
             android:exported="false"
             android:parentActivityName=".modules.image_slider.ImageSliderActivity"/>
+        <activity
+            android:name=".modules.image_slider.SliderViewpager2MultipleFragmentsActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.image_slider.ImageSliderActivity" />
         <activity
             android:name=".modules.image_slider.ImageSliderActivity"
             android:exported="false"
