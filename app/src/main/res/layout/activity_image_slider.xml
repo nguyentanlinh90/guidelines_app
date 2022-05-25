@@ -15,15 +15,21 @@
     <LinearLayout
         android:id="@+id/ll_button"
         android:layout_width="match_parent"
-        android:padding="16dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <Button
             android:id="@+id/bt_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ImageSlider - ViewPager - CircleIndicator" />
+
+        <Button
+            android:id="@+id/bt_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ImageSlider - ViewPager2 - CircleIndicator" />
     </LinearLayout>
 
 </RelativeLayout>

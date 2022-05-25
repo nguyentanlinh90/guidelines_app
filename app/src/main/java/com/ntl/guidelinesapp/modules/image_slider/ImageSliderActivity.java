@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
+import com.ntl.guidelinesapp.modules.image_slider.fragment.ImageSliderViewPager2CircleIndicatorFragment;
 import com.ntl.guidelinesapp.modules.image_slider.fragment.ImageSliderViewPagerCircleIndicatorFragment;
 
 public class ImageSliderActivity extends BaseActivity {
@@ -29,6 +30,10 @@ public class ImageSliderActivity extends BaseActivity {
 
         findViewById(R.id.bt_1).setOnClickListener(v -> {
             openFragment(new ImageSliderViewPagerCircleIndicatorFragment());
+        });
+
+        findViewById(R.id.bt_2).setOnClickListener(v -> {
+            openFragment(new ImageSliderViewPager2CircleIndicatorFragment());
         });
     }
 
