@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
@@ -19,6 +20,19 @@ public class SliderViewpager2MultipleFragmentsActivity extends AppCompatActivity
     private ViewPager2 vp2Main;
     private CircleIndicator3 circleIndicator3;
     private PhotoAdapter adapter;
+    private List<Photo> mList;
+
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (vp2Main.getCurrentItem() == mList.size() - 1) {
+                vp2Main.setCurrentItem(0);
+            } else {
+                vp2Main.setCurrentItem(vp2Main.getCurrentItem() + 1);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +43,21 @@ public class SliderViewpager2MultipleFragmentsActivity extends AppCompatActivity
         vp2Main = findViewById(R.id.vp2_main);
         circleIndicator3 = findViewById(R.id.circle_center);
 
-        adapter = new PhotoAdapter(this, getList());
+        mList = getList();
+        adapter = new PhotoAdapter(this, mList);
         vp2Main.setAdapter(adapter);
         circleIndicator3.setViewPager(vp2Main);
 
+        handler.postDelayed(runnable, 2000);
+
+        vp2Main.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                handler.removeCallbacks(runnable);
+                handler.postDelayed(runnable, 2000);
+            }
+        });
     }
 
     private List<Photo> getList() {
@@ -44,4 +69,15 @@ public class SliderViewpager2MultipleFragmentsActivity extends AppCompatActivity
         return list;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handler.postDelayed(runnable, 2000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+    }
 }
