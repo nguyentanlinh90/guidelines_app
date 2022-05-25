@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,18 @@ public class ImageSliderViewPagerCircleIndicatorFragment extends Fragment {
     private ViewPager vpPhoto;
     private CircleIndicator circleIndicator;
     private List<Photo> mList;
+
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (vpPhoto.getCurrentItem() == mList.size() - 1) {
+                vpPhoto.setCurrentItem(0);
+            } else {
+                vpPhoto.setCurrentItem(vpPhoto.getCurrentItem() + 1);
+            }
+        }
+    };
 
     public ImageSliderViewPagerCircleIndicatorFragment() {
         // Required empty public constructor
@@ -88,6 +101,26 @@ public class ImageSliderViewPagerCircleIndicatorFragment extends Fragment {
             getParentFragmentManager().popBackStack();
             mActivity.updateView(false);
         });
+
+        handler.postDelayed(runnable, 2000);
+
+        vpPhoto.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                handler.removeCallbacks(runnable);
+                handler.postDelayed(runnable, 2000);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         return view;
     }
 
@@ -98,5 +131,17 @@ public class ImageSliderViewPagerCircleIndicatorFragment extends Fragment {
         list.add(new Photo(R.drawable.img_600_300_3));
         list.add(new Photo(R.drawable.img_600_300_4));
         return list;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        handler.postDelayed(runnable, 2000);
     }
 }
