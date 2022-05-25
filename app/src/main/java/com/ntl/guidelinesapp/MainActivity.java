@@ -25,6 +25,7 @@ import com.ntl.guidelinesapp.modules.mvp.MVPActivity;
 import com.ntl.guidelinesapp.modules.mvvm.MVVMActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
+import com.ntl.guidelinesapp.modules.room_db.RoomDBActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
 import com.ntl.guidelinesapp.modules.send_data_activity_to_fragment.SendDataActivityToFragmentActivity;
 import com.ntl.guidelinesapp.modules.sharepreference.SharePreferenceActivity;
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(15, getResources().getString(R.string.template)));
         buttons.add(0, new ButtonModel(16, getResources().getString(R.string.list)));
         buttons.add(0, new ButtonModel(17, getResources().getString(R.string.image_slider)));
+        buttons.add(0, new ButtonModel(18, getResources().getString(R.string.room_db)));
 
         return buttons;
     }
@@ -147,6 +149,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 17:
                 gotoScreen(ImageSliderActivity.class);
+                break;
+            case 18:
+                gotoScreen(RoomDBActivity.class);
                 break;
         }
     }

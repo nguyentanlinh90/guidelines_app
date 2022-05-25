@@ -13,15 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.general.model.General;
-import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.GeneralViewHolder> implements Filterable {
     private List<General> mList;
-    private IOnClickItemGeneral iOnClickItemGeneral;
-    private List<General> mListOld;
+    private final IOnClickItemGeneral iOnClickItemGeneral;
+    private final List<General> mListOld;
 
     public interface IOnClickItemGeneral {
         void onClickItemGeneral(General general);
@@ -58,8 +57,8 @@ public class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.GeneralV
     }
 
     public class GeneralViewHolder extends RecyclerView.ViewHolder {
-        private CardView cvGeneral;
-        private TextView tvGeneral;
+        private final CardView cvGeneral;
+        private final TextView tvGeneral;
 
         public GeneralViewHolder(@NonNull View itemView) {
             super(itemView);
