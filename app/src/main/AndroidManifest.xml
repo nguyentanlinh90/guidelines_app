@@ -235,6 +235,7 @@
         </service>
 
         <service android:name=".modules.service.type.MyMusicService" />
+        <receiver android:name=".modules.service.type.MyMusicBroadcastReceiver"/>
     </application>
 
 </manifest>

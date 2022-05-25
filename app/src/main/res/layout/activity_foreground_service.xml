@@ -20,4 +20,6 @@
         android:layout_below="@+id/bt_play"
         android:layout_marginHorizontal="16dp"
         android:text="Stop" />
+
+    <include layout="@layout/layout_music_notification" />
 </RelativeLayout>
