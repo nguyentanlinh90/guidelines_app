@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 
 import com.ntl.guidelinesapp.AppUtils;
@@ -26,7 +27,7 @@ public class CustomSliderActivity extends AppCompatActivity {
     private List<Photo> mList;
     private CustomSliderAdapter adapter;
 
-    private Handler handler = new Handler();
+    private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {

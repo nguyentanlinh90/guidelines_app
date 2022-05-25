@@ -2,6 +2,7 @@ package com.ntl.guidelinesapp.modules.image_slider.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class ImageSliderViewPager2CircleIndicatorFragment extends Fragment {
     private CircleIndicator3 circleIndicator;
     private List<Photo> mList;
 
-    private Handler handler = new Handler();
+    private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
