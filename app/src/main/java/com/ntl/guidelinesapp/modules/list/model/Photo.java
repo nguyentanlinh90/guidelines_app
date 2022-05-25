@@ -1,6 +1,8 @@
 package com.ntl.guidelinesapp.modules.list.model;
 
-public class Photo {
+import java.io.Serializable;
+
+public class Photo implements Serializable {
     public static int TYPE_GRID = 1;
     public static int TYPE_LIST = 2;
     public static int TYPE_STAGGERED = 3;

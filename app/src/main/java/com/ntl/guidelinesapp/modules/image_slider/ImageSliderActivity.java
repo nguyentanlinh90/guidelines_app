@@ -35,6 +35,10 @@ public class ImageSliderActivity extends BaseActivity {
         findViewById(R.id.bt_2).setOnClickListener(v -> {
             openFragment(new ImageSliderViewPager2CircleIndicatorFragment());
         });
+
+        findViewById(R.id.bt_3).setOnClickListener(v -> {
+            AppUtils.gotoScreen(this, SliderViewpager2MultipleFragmentsActivity.class);
+        });
     }
 
     private void openFragment(Fragment fragment) {
