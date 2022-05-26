@@ -17,8 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".modules.service.bound.BoundActivity"
+            android:name=".modules.service.bound_with_message.BoundWithMessageActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.service.ServiceActivity" />
+        <activity
+            android:name=".modules.service.bound_with_ibinder_class.BoundWithIBinderClassActivity"
             android:exported="false"
             android:parentActivityName=".modules.service.ServiceActivity" />
         <activity
@@ -238,7 +243,8 @@
             </intent-filter>
         </service>
         <service android:name=".modules.service.unbound.MyMusicService" />
-        <service android:name=".modules.service.bound.MusicBoundService" />
+        <service android:name=".modules.service.bound_with_ibinder_class.MusicBoundIBinderService" />
+        <service android:name=".modules.service.bound_with_message.MusicBoundMessageService" />
 
         <receiver android:name=".modules.service.unbound.MyMusicBroadcastReceiver" />
     </application>

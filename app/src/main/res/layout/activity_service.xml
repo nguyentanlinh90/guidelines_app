@@ -16,9 +16,16 @@
         android:text="Foreground Service" />
 
     <Button
-        android:id="@+id/bt_bound_service"
+        android:id="@+id/bt_bound_ibinder_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
-        android:text="Bound Service" />
+        android:text="Bound With IBinder Class Service" />
+
+    <Button
+        android:id="@+id/bt_bound_message_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Bound With Message Service" />
 </LinearLayout>

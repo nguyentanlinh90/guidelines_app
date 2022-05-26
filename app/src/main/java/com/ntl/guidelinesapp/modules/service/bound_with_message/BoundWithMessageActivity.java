@@ -1,6 +1,4 @@
-package com.ntl.guidelinesapp.modules.service.bound;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.ntl.guidelinesapp.modules.service.bound_with_message;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -8,28 +6,40 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.service.Song;
+import com.ntl.guidelinesapp.modules.service.bound_with_ibinder_class.MusicBoundIBinderService;
 
-public class BoundActivity extends AppCompatActivity {
+public class BoundWithMessageActivity extends AppCompatActivity {
     private Button btPlay, btStop;
-    private MusicBoundService musicBoundService;
+
+    private Messenger messenger;
     private boolean isServiceConnected;
 
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            MusicBoundService.MyBinder myBinder = (MusicBoundService.MyBinder) service;
-            musicBoundService = myBinder.getMusicBoundService();
-            musicBoundService.playMusic();
+            messenger = new Messenger(service);
             isServiceConnected = true;
+
+            Message message = Message.obtain(null, MusicBoundMessageService.MSG_PLAY_MUSIC, 0, 0);
+            try {
+                messenger.send(message);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
+            messenger = null;
             isServiceConnected = false;
         }
     };
@@ -38,7 +48,7 @@ public class BoundActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bound);
-        AppUtils.setTitleBar(this, BoundActivity.class);
+        AppUtils.setTitleBar(this, BoundWithMessageActivity.class);
 
         btPlay = findViewById(R.id.bt_play);
         btStop = findViewById(R.id.bt_stop);
@@ -49,7 +59,7 @@ public class BoundActivity extends AppCompatActivity {
     }
 
     private void startPlayMusic() {
-        Intent intent = new Intent(this, MusicBoundService.class);
+        Intent intent = new Intent(this, MusicBoundMessageService.class);
         bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 

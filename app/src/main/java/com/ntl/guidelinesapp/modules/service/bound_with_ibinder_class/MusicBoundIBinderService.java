@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.service.bound;
+package com.ntl.guidelinesapp.modules.service.bound_with_ibinder_class;
 
 import android.app.Service;
 import android.content.Intent;
@@ -11,15 +11,15 @@ import androidx.annotation.Nullable;
 
 import com.ntl.guidelinesapp.R;
 
-public class MusicBoundService extends Service {
-    private final String TAG = MusicBoundService.class.getSimpleName();
+public class MusicBoundIBinderService extends Service {
+    private final String TAG = MusicBoundIBinderService.class.getSimpleName();
     private MediaPlayer mediaPlayer;
 
     private MyBinder myBinder = new MyBinder();
 
     public class MyBinder extends Binder {
-        MusicBoundService getMusicBoundService() {
-            return MusicBoundService.this;
+        MusicBoundIBinderService getMusicBoundService() {
+            return MusicBoundIBinderService.this;
         }
     }
 
