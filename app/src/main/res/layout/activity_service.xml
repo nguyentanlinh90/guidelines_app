@@ -28,4 +28,11 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Bound With Message Service" />
+
+    <Button
+        android:id="@+id/bt_foreground_bound_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Foreground And Bound Service" />
 </LinearLayout>
