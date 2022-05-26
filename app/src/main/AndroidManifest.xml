@@ -18,7 +18,7 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.service.type.ForegroundServiceActivity"
+            android:name=".modules.service.unbound.ForegroundServiceActivity"
             android:exported="false"
             android:parentActivityName=".modules.service.ServiceActivity" />
         <activity
@@ -234,8 +234,8 @@
             </intent-filter>
         </service>
 
-        <service android:name=".modules.service.type.MyMusicService" />
-        <receiver android:name=".modules.service.type.MyMusicBroadcastReceiver"/>
+        <service android:name=".modules.service.unbound.MyMusicService" />
+        <receiver android:name=".modules.service.unbound.MyMusicBroadcastReceiver"/>
     </application>
 
 </manifest>

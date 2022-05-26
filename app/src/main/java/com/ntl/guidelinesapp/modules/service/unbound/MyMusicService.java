@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.service.type;
+package com.ntl.guidelinesapp.modules.service.unbound;
 
 import static com.ntl.guidelinesapp.Constants.ACTION_MUSIC;
 import static com.ntl.guidelinesapp.Constants.ACTION_SERVICE_MUSIC;

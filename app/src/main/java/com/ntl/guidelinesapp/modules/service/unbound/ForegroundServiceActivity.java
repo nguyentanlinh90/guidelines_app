@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.service.type;
+package com.ntl.guidelinesapp.modules.service.unbound;
 
 import static com.ntl.guidelinesapp.Constants.ACTION_SERVICE_MUSIC;
 
@@ -68,7 +68,7 @@ public class ForegroundServiceActivity extends AppCompatActivity {
     }
 
     private void startPlayMusic() {
-        Song song = new Song("Big city boy", "Linh Nguyen", R.raw.bigcityboy_binz, R.drawable.img_400_600);
+        Song song = new Song("File MP3 Test", "Dragon Z", R.raw.mp3_test, R.drawable.img_400_600);
         Intent intent = new Intent(this, MyMusicService.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable(Constants.SONG_OBJECT, song);

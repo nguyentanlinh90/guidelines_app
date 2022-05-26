@@ -3,11 +3,10 @@ package com.ntl.guidelinesapp.modules.service;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
-import com.ntl.guidelinesapp.modules.service.type.ForegroundServiceActivity;
+import com.ntl.guidelinesapp.modules.service.unbound.ForegroundServiceActivity;
 
 public class ServiceActivity extends AppCompatActivity {
 

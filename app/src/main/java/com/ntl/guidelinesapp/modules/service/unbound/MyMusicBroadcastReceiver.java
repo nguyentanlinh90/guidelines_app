@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.modules.service.type;
+package com.ntl.guidelinesapp.modules.service.unbound;
 
 import static com.ntl.guidelinesapp.Constants.ACTION_SERVICE_MUSIC;
 
@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.ntl.guidelinesapp.Constants;
-import com.ntl.guidelinesapp.modules.service.Song;
 
 public class MyMusicBroadcastReceiver extends BroadcastReceiver {
     @Override
