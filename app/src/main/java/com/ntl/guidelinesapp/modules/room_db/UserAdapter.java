@@ -79,7 +79,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             tvUsername = itemView.findViewById(R.id.tv_username);
             tvAddress = itemView.findViewById(R.id.tv_address);
             tvYear = itemView.findViewById(R.id.tv_year);
-            tvPhone = itemView.findViewById(R.id.tv_phone);
+            tvPhone = itemView.findViewById(R.id.tv_display_name);
             btUpdate = itemView.findViewById(R.id.bt_update);
             btDelete = itemView.findViewById(R.id.bt_delete);
         }

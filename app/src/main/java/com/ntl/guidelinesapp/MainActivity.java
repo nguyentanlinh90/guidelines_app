@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ntl.guidelinesapp.modules.bottom_sheet.BottomSheetActivity;
 import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivity;
+import com.ntl.guidelinesapp.modules.content_provider.ContentProviderActivity;
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.filter_recyclerview.FilterRecyclerViewActivity;
 import com.ntl.guidelinesapp.modules.firebase.FirebaseActivity;
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(17, getResources().getString(R.string.image_slider)));
         buttons.add(0, new ButtonModel(18, getResources().getString(R.string.room_db)));
         buttons.add(0, new ButtonModel(19, getResources().getString(R.string.service)));
+        buttons.add(0, new ButtonModel(20, getResources().getString(R.string.content_provider)));
 
         return buttons;
     }
@@ -157,6 +159,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 19:
                 gotoScreen(ServiceActivity.class);
+                break;
+            case 20:
+                gotoScreen(ContentProviderActivity.class);
                 break;
         }
     }
