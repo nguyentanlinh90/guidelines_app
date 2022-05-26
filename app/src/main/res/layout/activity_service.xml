@@ -35,4 +35,11 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
         android:text="Foreground And Bound Service" />
+
+    <Button
+        android:id="@+id/bt_background_with_jobscheduler_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="Background with jobscheduler Service" />
 </LinearLayout>

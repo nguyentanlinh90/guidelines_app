@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
@@ -17,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".modules.service.background_with_jobschduler.BackgroundWithJobSchedulerActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.service.ServiceActivity" />
         <activity
             android:name=".modules.service.foreground_bound.ForegroundAndBoundActivity"
             android:exported="false"
@@ -251,6 +256,9 @@
         <service android:name=".modules.service.foreground_bound.MyMusicService" />
 
         <receiver android:name=".modules.service.unbound.MyMusicBroadcastReceiver" />
+        <service
+            android:name=".modules.service.background_with_jobschduler.MyJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>
