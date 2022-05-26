@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.modules.service.bound.BoundActivity;
 import com.ntl.guidelinesapp.modules.service.unbound.ForegroundServiceActivity;
 
 public class ServiceActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class ServiceActivity extends AppCompatActivity {
         AppUtils.setTitleBar(this, ServiceActivity.class);
 
         findViewById(R.id.bt_foreground_service).setOnClickListener(v -> AppUtils.gotoScreen(ServiceActivity.this, ForegroundServiceActivity.class));
+        findViewById(R.id.bt_bound_service).setOnClickListener(v -> AppUtils.gotoScreen(ServiceActivity.this, BoundActivity.class));
 
     }
 }

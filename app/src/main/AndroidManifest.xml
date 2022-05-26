@@ -18,6 +18,10 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.service.bound.BoundActivity"
+            android:exported="false"
+            android:parentActivityName=".modules.service.ServiceActivity" />
+        <activity
             android:name=".modules.service.unbound.ForegroundServiceActivity"
             android:exported="false"
             android:parentActivityName=".modules.service.ServiceActivity" />
@@ -233,9 +237,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".modules.service.unbound.MyMusicService" />
-        <receiver android:name=".modules.service.unbound.MyMusicBroadcastReceiver"/>
+        <service android:name=".modules.service.bound.MusicBoundService" />
+
+        <receiver android:name=".modules.service.unbound.MyMusicBroadcastReceiver" />
     </application>
 
 </manifest>
