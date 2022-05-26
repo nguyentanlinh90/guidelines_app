@@ -12,12 +12,11 @@ import com.ntl.guidelinesapp.AppUtils;
 public class ListenerNetworkBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e("linhnt", "connect");
         if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
             if (AppUtils.isNetworkAvailable(context)) {
-                Toast.makeText(context, "Internet Connected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Internet Connected 1", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(context, "Internet Disconnected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Internet Disconnected 1", Toast.LENGTH_SHORT).show();
             }
         }
     }
