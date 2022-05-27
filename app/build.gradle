@@ -75,11 +75,19 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'me.relex:circleindicator:2.1.6'
 
+    //rom db
     implementation "androidx.room:room-runtime:2.4.2"
     annotationProcessor "androidx.room:room-compiler:2.4.2"
+
+    //kotlin
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    //rxAndroid
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+
+    //dagger2
+    implementation 'com.google.dagger:dagger:2.42'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
 }

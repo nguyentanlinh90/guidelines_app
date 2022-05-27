@@ -21,9 +21,13 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.rx.RxActivity"
+            android:name=".modules.dagger2.Dagger2Activity"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".modules.rx.RxActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".modules.content_provider.view.ContactsAndSMSActivity"
             android:exported="false"
