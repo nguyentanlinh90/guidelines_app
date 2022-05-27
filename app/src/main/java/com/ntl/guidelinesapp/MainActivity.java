@@ -27,6 +27,7 @@ import com.ntl.guidelinesapp.modules.mvvm.MVVMActivity;
 import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.room_db.RoomDBActivity;
+import com.ntl.guidelinesapp.modules.rx.RxActivity;
 import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
 import com.ntl.guidelinesapp.modules.send_data_activity_to_fragment.SendDataActivityToFragmentActivity;
 import com.ntl.guidelinesapp.modules.service.ServiceActivity;
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(18, getResources().getString(R.string.room_db)));
         buttons.add(0, new ButtonModel(19, getResources().getString(R.string.service)));
         buttons.add(0, new ButtonModel(20, getResources().getString(R.string.content_provider)));
+        buttons.add(0, new ButtonModel(21, getResources().getString(R.string.rx)));
 
         return buttons;
     }
@@ -162,6 +164,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 20:
                 gotoScreen(ContentProviderActivity.class);
+                break;
+            case 21:
+                gotoScreen(RxActivity.class);
                 break;
         }
     }
