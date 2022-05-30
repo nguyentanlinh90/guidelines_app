@@ -26,6 +26,6 @@ public class User {
     }
 
     public boolean isValidUser(String e, String p) {
-        return e.equalsIgnoreCase("justsimple2910@gmail.com") && p.equalsIgnoreCase("123");
+        return e.contains("@gmail.com") && p.equalsIgnoreCase("123");
     }
 }
