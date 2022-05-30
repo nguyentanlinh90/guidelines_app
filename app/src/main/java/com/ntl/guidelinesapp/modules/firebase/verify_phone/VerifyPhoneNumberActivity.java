@@ -1,5 +1,6 @@
 package com.ntl.guidelinesapp.modules.firebase.verify_phone;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.phone.SmsRetriever;
+import com.google.android.gms.auth.api.phone.SmsRetrieverClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -21,6 +24,7 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
+import com.ntl.guidelinesapp.modules.broadcast_receiver.MySMSBroadcastReceiver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,6 +38,8 @@ public class VerifyPhoneNumberActivity extends AppCompatActivity {
     private String mVerificationID = "";
     private PhoneAuthProvider.ForceResendingToken mForceResendingToken;
     private boolean isResendOTP;
+
+    private MySMSBroadcastReceiver mySMSBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,8 @@ public class VerifyPhoneNumberActivity extends AppCompatActivity {
 
         edtPhone.requestFocus();
         AppUtils.showSoftKeyBoard(edtPhone);
+
+        startSMSRetrieverClient();
     }
 
     private void startVerifyPhone() {
@@ -75,8 +83,8 @@ public class VerifyPhoneNumberActivity extends AppCompatActivity {
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                                 Log.e(TAG, "onVerificationCompleted:" + phoneAuthCredential);
-
-                                signInWithPhoneAuthCredential(phoneAuthCredential);
+                                // TODO: 31/05/2022 for test receiver sms and auto field with receiverSMS()
+//                                signInWithPhoneAuthCredential(phoneAuthCredential);
                             }
 
                             @Override
@@ -146,5 +154,47 @@ public class VerifyPhoneNumberActivity extends AppCompatActivity {
         llInputPhone.setVisibility(View.VISIBLE);
         llInputOTP.setVisibility(View.INVISIBLE);
         startVerifyPhone();
+    }
+
+    private void startSMSRetrieverClient() {
+        SmsRetrieverClient client = SmsRetriever.getClient(this);
+        Task<Void> task = client.startSmsRetriever();
+        task.addOnSuccessListener(aVoid -> {
+            // Successfully started retriever, expect broadcast intent
+            // ...
+            Log.e(TAG, "addOnSuccessListener");
+        });
+        task.addOnFailureListener(e -> {
+            // Failed to start retriever, inspect Exception for more details
+            // ...
+            Log.e(TAG, "addOnFailureListener");
+        });
+
+        receiverSMS();
+    }
+
+    private void receiverSMS() {
+        mySMSBroadcastReceiver = new MySMSBroadcastReceiver();
+        registerReceiver(mySMSBroadcastReceiver, new IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION));
+        mySMSBroadcastReceiver.init(new MySMSBroadcastReceiver.OTPReceiveListener() {
+            @Override
+            public void onOTPReceived(String otp) {
+                // OTP Received
+                Log.e(TAG, "onOTPReceived: " + otp);
+                edtOTP.setText(otp);
+            }
+
+            @Override
+            public void onOTPTimeOut() {
+                Log.e(TAG, "onOTPTimeOut: ");
+            }
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mySMSBroadcastReceiver != null)
+            unregisterReceiver(mySMSBroadcastReceiver);
     }
 }

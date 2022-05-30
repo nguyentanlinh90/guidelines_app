@@ -29,8 +29,8 @@ import com.ntl.guidelinesapp.modules.notification.NotificationActivity;
 import com.ntl.guidelinesapp.modules.retrofit.RetrofitActivity;
 import com.ntl.guidelinesapp.modules.room_db.RoomDBActivity;
 import com.ntl.guidelinesapp.modules.rx.RxActivity;
-import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
 import com.ntl.guidelinesapp.modules.send_data_activity_to_fragment.SendDataActivityToFragmentActivity;
+import com.ntl.guidelinesapp.modules.send_data_fragment_to_fragment.SendDataFragmentToFragmentActivity;
 import com.ntl.guidelinesapp.modules.service.ServiceActivity;
 import com.ntl.guidelinesapp.modules.sharepreference.SharePreferenceActivity;
 import com.ntl.guidelinesapp.modules.template.TemplateActivity;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ButtonAdapter.IClickButton {
-    private static String TAG = MainActivity.class.getName();
+    private static String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,11 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         setContentView(R.layout.activity_main);
 
         initButton();
+
+        //https://medium.com/@iagrawalshubham/automatic-otp-sms-detection-integration-android-b9fcb8bdf5d6
+        //need delete AppSignatureHelper file after get signature success
+//        AppSignatureHelper appSignatureHelper = new AppSignatureHelper(this);
+//        Log.e(TAG, "signature: " + appSignatureHelper.getAppSignatures());
 
         /*FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {

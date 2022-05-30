@@ -23,7 +23,7 @@
         <activity
             android:name=".modules.dagger2.Dagger2Activity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".modules.rx.RxActivity"
             android:exported="false"
@@ -278,6 +278,14 @@
         <service
             android:name=".modules.service.background_with_jobschduler.MyJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
+        <receiver
+            android:name=".modules.broadcast_receiver.MySMSBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

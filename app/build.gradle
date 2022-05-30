@@ -113,4 +113,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
     // Lifecycles only (without ViewModel or LiveData)
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+
+    //SMS Retriever API
+//    implementation 'com.google.android.gms:play-services-auth:20.2.0'
+//    implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
 }
