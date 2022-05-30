@@ -46,16 +46,21 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.6.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    //retrofit
+    //gson
     implementation 'com.google.code.gson:gson:2.9.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.7.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
+
+    //retrofit
+    def version_retrofit = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$version_retrofit"
+
     implementation 'androidx.media:media:1.6.0'
 
     //sdk
@@ -76,18 +81,36 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
 
     //rom db
-    implementation "androidx.room:room-runtime:2.4.2"
-    annotationProcessor "androidx.room:room-compiler:2.4.2"
+    def room_version = "2.4.2"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
     //kotlin
-    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:1.7.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //rxAndroid
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    //rxAndroid 3
+    def rx_version = "3.0.0"
+    implementation "io.reactivex.rxjava3:rxandroid:$rx_version"
+    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
+
+    //rxAndroid 2 - for example on Dagger2Activity => UserViewModel (AndroidSchedulers.mainThread())
+    def rxandroid = "2.1.1"
+    //def rxjava = "2.2.9"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid"
+    //implementation "io.reactivex.rxjava2:rxjava:$rxjava"
 
     //dagger2
-    implementation 'com.google.dagger:dagger:2.42'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
+    def dagger_version = "2.42"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //Lifecycles
+    def lifecycle_version = "2.4.1"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
 }

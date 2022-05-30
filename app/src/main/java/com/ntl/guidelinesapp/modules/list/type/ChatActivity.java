@@ -15,7 +15,6 @@ import android.widget.EditText;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.BaseActivity;
-import com.ntl.guidelinesapp.generated.callback.OnClickListener;
 import com.ntl.guidelinesapp.modules.list.adapter.UserLinearAdapter;
 import com.ntl.guidelinesapp.modules.list.model.User;
 
