@@ -42,11 +42,11 @@ public class MySMSBroadcastReceiver extends BroadcastReceiver {
                             if (message != null) {
                                 Pattern pattern = Pattern.compile("(\\d{6})");
                                 //   \d is for a digit
-                                //   {} is the number of digits here 4.
+                                //   {} is the number of digits here 6.
                                 Matcher matcher = pattern.matcher(message);
                                 String val = "";
                                 if (matcher.find()) {
-                                    val = matcher.group(0);  // 4 digit number
+                                    val = matcher.group(0);  // 6 digit number
                                     if (this.otpReceiveListener != null)
                                         this.otpReceiveListener.onOTPReceived(val);
                                 } else {
