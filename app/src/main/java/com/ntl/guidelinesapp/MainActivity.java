@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ntl.guidelinesapp.modules.bottom_sheet.BottomSheetActivity;
 import com.ntl.guidelinesapp.modules.broadcast_receiver.BroadcastReceiverActivity;
 import com.ntl.guidelinesapp.modules.content_provider.ContentProviderActivity;
+import com.ntl.guidelinesapp.modules.coroutines.CoroutinesActivity;
 import com.ntl.guidelinesapp.modules.dagger2.Dagger2Activity;
 import com.ntl.guidelinesapp.modules.download_file.DownloadFileActivity;
 import com.ntl.guidelinesapp.modules.filter_recyclerview.FilterRecyclerViewActivity;
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(20, getResources().getString(R.string.content_provider)));
         buttons.add(0, new ButtonModel(21, getResources().getString(R.string.rx)));
         buttons.add(0, new ButtonModel(22, getResources().getString(R.string.dagger2)));
+        buttons.add(0, new ButtonModel(23, getResources().getString(R.string.coroutines)));
 
         return buttons;
     }
@@ -177,6 +179,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 22:
                 gotoScreen(Dagger2Activity.class);
+                break;
+            case 23:
+                gotoScreen(CoroutinesActivity.class);
                 break;
         }
     }

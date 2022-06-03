@@ -21,6 +21,10 @@
         android:theme="@style/Theme.GuidelinesApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.coroutines.CoroutinesActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".modules.dagger2.Dagger2Activity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
@@ -278,6 +282,7 @@
         <service
             android:name=".modules.service.background_with_jobschduler.MyJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <receiver
             android:name=".modules.broadcast_receiver.MySMSBroadcastReceiver"
             android:exported="true"
