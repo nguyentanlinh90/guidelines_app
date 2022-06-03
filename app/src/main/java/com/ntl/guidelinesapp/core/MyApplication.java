@@ -46,6 +46,7 @@ public class MyApplication extends Application {
             channel2.setDescription(getString(R.string.channel_des_2));
             Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.snezee);
             channel2.setSound(sound, audioAttributes);
+//            channel2.setShowBadge(true);
 
             //config channel 3
             NotificationChannel channel3 = new NotificationChannel(CHANNEL_ID_3, getString(R.string.channel_name_3), NotificationManager.IMPORTANCE_DEFAULT);

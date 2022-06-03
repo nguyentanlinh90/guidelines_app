@@ -188,11 +188,16 @@ public class NotificationActivity extends BaseActivity {
                 .addAction(R.drawable.ic_baseline_skip_previous_24, "Pre", null)
                 .addAction(R.drawable.ic_baseline_pause_24, "Pause", null)
                 .addAction(R.drawable.ic_baseline_skip_previous_24, "Next", null)
+                .setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE)
+                .setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE)
+                .setNumber(1)
+                .setGroup("Group Test")
+                .setGroupSummary(true)
                 .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
-                        .setShowActionsInCompactView(1)
+                                .setShowActionsInCompactView(1)
                         //todo Couldn't find a unique registered media button receiver in the given context.
                         //.setMediaSession(mediaSessionCompat.getSessionToken())
-                        )
+                )
                 .build();
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
         notificationManagerCompat.notify(getRandomNotificationId(), notification);
