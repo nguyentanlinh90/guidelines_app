@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 class SequentialViewModel : BaseViewModel() {
     override fun fetchData() {
 
-        //request tuan tu, xong cai 1 roi moi den cai 2
+        //todo request tuan tu, xong cai 1 roi moi den cai 2
         val parentJob = viewModelScope.launch(parentExceptionHandler) {
             // TODO: show loading
             Logger.log("Show loading")

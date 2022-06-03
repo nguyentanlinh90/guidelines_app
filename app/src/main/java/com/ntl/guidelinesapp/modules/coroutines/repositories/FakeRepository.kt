@@ -19,4 +19,11 @@ class FakeRepository(private val dispatcher: CoroutineDispatcher) {
             index
         }
 
+    suspend fun saveToDB(index: Int) =
+        withContext(dispatcher) {
+            Logger.log("Saving to DB: $index")
+            val delayTime = index * 1000L
+            delay(delayTime)
+            Logger.log("Save to DB success: $index")
+        }
 }
