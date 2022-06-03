@@ -17,6 +17,7 @@ import io.reactivex.schedulers.Schedulers;
 public class UserViewModel extends ViewModel {
 
     private UserRepository userRepository;
+    //todo https://viblo.asia/p/quan-ly-disposable-trong-rxjava2-924lJxV6KPM
     private CompositeDisposable disposable = new CompositeDisposable();
     private MutableLiveData<UserModel> modelMutableLiveData = new MutableLiveData<>();
 
@@ -48,4 +49,9 @@ public class UserViewModel extends ViewModel {
                 })
         );
     }
+
+    public void dispose() {
+        disposable.dispose();
+    }
+
 }

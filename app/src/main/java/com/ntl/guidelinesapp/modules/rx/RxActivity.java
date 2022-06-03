@@ -1,6 +1,7 @@
 package com.ntl.guidelinesapp.modules.rx;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +9,10 @@ import android.util.Log;
 import com.ntl.guidelinesapp.AppUtils;
 import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.modules.room_db.User;
+import com.ntl.guidelinesapp.modules.room_db.UserAdapter;
 import com.ntl.guidelinesapp.modules.room_db.database.UserDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -26,6 +29,10 @@ public class RxActivity extends AppCompatActivity {
 
     private Disposable mDisposable;
 
+    private UserAdapter adapter;
+    private List<User> mList;
+    private RecyclerView rcvUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +42,11 @@ public class RxActivity extends AppCompatActivity {
         getObservableUser().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getObserverUser());
+        rcvUser = findViewById(R.id.rcv_user);
+        mList = new ArrayList<>();
+        adapter = new UserAdapter(null);
+//        adapter.setData(mList);
+        rcvUser.setAdapter(adapter);
 
     }
 
@@ -73,6 +85,7 @@ public class RxActivity extends AppCompatActivity {
             @Override
             public void onNext(@NonNull User user) {
                 Log.e(TAG, "onNext " + user.toString());
+                mList.add(0, user);
             }
 
             @Override
@@ -83,6 +96,7 @@ public class RxActivity extends AppCompatActivity {
             @Override
             public void onComplete() {
                 Log.e(TAG, "onComplete");
+                adapter.setData(mList);
             }
         };
     }

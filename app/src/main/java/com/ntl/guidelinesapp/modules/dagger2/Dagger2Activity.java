@@ -47,4 +47,10 @@ public class Dagger2Activity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        userViewModel.dispose();
+    }
 }
