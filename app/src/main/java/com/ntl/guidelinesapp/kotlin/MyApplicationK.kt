@@ -1,10 +1,9 @@
-package com.ntl.guidelinesapp.core
+package com.ntl.guidelinesapp.kotlin
 
 import com.ntl.guidelinesapp.modules.sharepreference.DataLocalManager
 import android.os.Build
 import android.media.AudioAttributes
 import android.app.NotificationChannel
-import com.ntl.guidelinesapp.core.MyApplicationK
 import com.ntl.guidelinesapp.R
 import android.app.NotificationManager
 import android.media.RingtoneManager
