@@ -1,7 +1,5 @@
 package com.ntl.guidelinesapp.modules.room_db;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +13,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -114,7 +110,7 @@ public class RoomDBActivity extends AppCompatActivity {
             return;
         }
 
-        UserDatabase.getInstance(this).userDAO().insertUser(user);
+        UserDatabase.getInstance(this).getUserDAO().insertUser(user);
         Toast.makeText(this, "add user success", Toast.LENGTH_SHORT).show();
 
         hideSoftKeyBoard();
@@ -132,13 +128,13 @@ public class RoomDBActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        mList = UserDatabase.getInstance(this).userDAO().getListUser();
+        mList = UserDatabase.getInstance(this).getUserDAO().getListUser();
         Collections.reverse(mList);
         adapter.setData(mList);
     }
 
     private boolean isUserExits(User user) {
-        List<User> list = UserDatabase.getInstance(this).userDAO().checkUser(user.getUsername());
+        List<User> list = UserDatabase.getInstance(this).getUserDAO().checkUser(user.getUsername());
         return list != null & !list.isEmpty();
     }
 
@@ -158,7 +154,7 @@ public class RoomDBActivity extends AppCompatActivity {
                 .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        UserDatabase.getInstance(getApplicationContext()).userDAO().deleteUser(user);
+                        UserDatabase.getInstance(getApplicationContext()).getUserDAO().deleteUser(user);
                         Toast.makeText(RoomDBActivity.this, "delete user success", Toast.LENGTH_SHORT).show();
                         loadData();
                     }
@@ -178,7 +174,7 @@ public class RoomDBActivity extends AppCompatActivity {
                 .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        UserDatabase.getInstance(getApplicationContext()).userDAO().dellAllUser();
+                        UserDatabase.getInstance(getApplicationContext()).getUserDAO().dellAllUser();
                         Toast.makeText(RoomDBActivity.this, "delete all user success", Toast.LENGTH_SHORT).show();
                         loadData();
                     }
@@ -194,7 +190,7 @@ public class RoomDBActivity extends AppCompatActivity {
     private void handleSearchUser() {
         String textSearch = edtSearch.getText().toString().trim();
         mList = new ArrayList<>();
-        mList = UserDatabase.getInstance(this).userDAO().searchUsername(textSearch);
+        mList = UserDatabase.getInstance(this).getUserDAO().searchUsername(textSearch);
         adapter.setData(mList);
         hideSoftKeyBoard();
 

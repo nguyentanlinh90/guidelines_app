@@ -52,7 +52,7 @@ public class RoomUpdateActivity extends AppCompatActivity {
         user.setUsername(username);
         user.setAddress(address);
 
-        UserDatabase.getInstance(this).userDAO().updateUser(user);
+        UserDatabase.getInstance(this).getUserDAO().updateUser(user);
         Toast.makeText(this, "update success", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);

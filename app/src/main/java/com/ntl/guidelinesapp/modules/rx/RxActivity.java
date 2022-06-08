@@ -51,7 +51,7 @@ public class RxActivity extends AppCompatActivity {
     }
 
     private Observable<User> getObservableUser() {
-        List<User> users = UserDatabase.getInstance(this).userDAO().getListUser();
+        List<User> users = UserDatabase.getInstance(this).getUserDAO().getListUser();
 
         return Observable.create(new ObservableOnSubscribe<User>() {
             @Override
