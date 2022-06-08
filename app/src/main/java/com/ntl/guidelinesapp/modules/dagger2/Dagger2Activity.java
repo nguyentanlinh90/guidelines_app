@@ -13,7 +13,6 @@ import com.ntl.guidelinesapp.R;
 import com.ntl.guidelinesapp.core.MyApplication;
 import com.ntl.guidelinesapp.databinding.ActivityDagger2Binding;
 import com.ntl.guidelinesapp.modules.dagger2.di.components.AppComponent;
-import com.ntl.guidelinesapp.modules.dagger2.di.components.DaggerAppComponent;
 import com.ntl.guidelinesapp.modules.dagger2.model.UserModel;
 import com.ntl.guidelinesapp.modules.dagger2.viewmodel.UserViewModel;
 
@@ -36,7 +35,7 @@ public class Dagger2Activity extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dagger2);
 
-        appComponent = DaggerAppComponent.create();
+//        appComponent = DaggerAppComponent.create();
         appComponent.inject(Dagger2Activity.this);
 
         userViewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel.class);

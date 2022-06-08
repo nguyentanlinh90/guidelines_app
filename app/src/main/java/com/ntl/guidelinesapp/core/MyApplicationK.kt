@@ -1,4 +1,4 @@
-package com.ntl.guidelinesapp.kotlin
+package com.ntl.guidelinesapp.core
 
 import com.ntl.guidelinesapp.modules.sharepreference.DataLocalManager
 import android.os.Build
@@ -12,22 +12,41 @@ import android.app.Application
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.Uri
+import androidx.multidex.MultiDexApplication
 import com.ntl.guidelinesapp.modules.broadcast_receiver.ListenerNetworkBroadcastReceiver
+import com.ntl.guidelinesapp.modules.kotlin_koin_mvvm.di.AppModule
+import com.ntl.guidelinesapp.modules.kotlin_koin_mvvm.di.MainRepositoryModule
+import com.ntl.guidelinesapp.modules.kotlin_koin_mvvm.di.ViewModelModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
-class MyApplicationK : Application() {
+class MyApplicationK : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
         DataLocalManager.init(applicationContext)
         //        registerConnectivity();
+
+        // start Koin!
+        startKoin {
+            // declare used Android context
+            androidContext(this@MyApplicationK)
+            // declare modules
+            modules(AppModule, ViewModelModule, MainRepositoryModule)
+        }
     }
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val audioAttributes = AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION).build()
+            val audioAttributes =
+                AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION).build()
 
             //config channel 1
-            val channel = NotificationChannel(CHANNEL_ID, getString(R.string.channel_name), NotificationManager.IMPORTANCE_DEFAULT)
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                getString(R.string.channel_name),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
             channel.description = getString(R.string.channel_des)
             //lay am thanh default notification trong device
             val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
@@ -35,13 +54,21 @@ class MyApplicationK : Application() {
             channel.setSound(null, null)
 
             //config channel 2
-            @SuppressLint("WrongConstant") val channel2 = NotificationChannel(CHANNEL_ID_2, getString(R.string.channel_name_2), NotificationManager.IMPORTANCE_MAX)
+            @SuppressLint("WrongConstant") val channel2 = NotificationChannel(
+                CHANNEL_ID_2,
+                getString(R.string.channel_name_2),
+                NotificationManager.IMPORTANCE_MAX
+            )
             channel2.description = getString(R.string.channel_des_2)
             val sound = Uri.parse("android.resource://" + packageName + "/" + R.raw.snezee)
             channel2.setSound(sound, audioAttributes)
 
             //config channel 3
-            val channel3 = NotificationChannel(CHANNEL_ID_3, getString(R.string.channel_name_3), NotificationManager.IMPORTANCE_DEFAULT)
+            val channel3 = NotificationChannel(
+                CHANNEL_ID_3,
+                getString(R.string.channel_name_3),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
             channel.description = getString(R.string.channel_des_3)
             val manager = getSystemService<NotificationManager>(NotificationManager::class.java)
             if (manager != null) {

@@ -23,6 +23,7 @@ import com.ntl.guidelinesapp.modules.filter_recyclerview.FilterRecyclerViewActiv
 import com.ntl.guidelinesapp.modules.firebase.FirebaseActivity;
 import com.ntl.guidelinesapp.modules.image_slider.ImageSliderActivity;
 import com.ntl.guidelinesapp.modules.keep_state_fragment.KeepStateFragmentActivity;
+import com.ntl.guidelinesapp.modules.kotlin_koin_mvvm.KoinMVVMActivity;
 import com.ntl.guidelinesapp.modules.list.ListActivity;
 import com.ntl.guidelinesapp.modules.mvp.MVPActivity;
 import com.ntl.guidelinesapp.modules.mvvm.MVVMActivity;
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
         buttons.add(0, new ButtonModel(21, getResources().getString(R.string.rx)));
         buttons.add(0, new ButtonModel(22, getResources().getString(R.string.dagger2)));
         buttons.add(0, new ButtonModel(23, getResources().getString(R.string.coroutines)));
+        buttons.add(0, new ButtonModel(24, getResources().getString(R.string.kotlin_koin_mvvm)));
 
         return buttons;
     }
@@ -182,6 +184,9 @@ public class MainActivity extends AppCompatActivity implements ButtonAdapter.ICl
                 break;
             case 23:
                 gotoScreen(CoroutinesActivity.class);
+                break;
+            case 24:
+                gotoScreen(KoinMVVMActivity.class);
                 break;
         }
     }
